@@ -41,8 +41,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>오히려좋조</title>
-    
-    <script></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/c215d26fd2.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <header>
@@ -75,51 +91,71 @@
           <div id="card" class="row row-cols-1 row-cols-md-5 g-4">
             <div class="col">
               <div class="card">
-                <img src="static/images/mimoji_face_doehee.png" class="card-img-top" alt="...">
+                <img
+                  src="static/images/mimoji_face_doehee.png"
+                  class="card-img-top"
+                  alt="..."
+                />
                 <div class="card-body">
-                    <h5 class="card-name">김도희</h5>
-                    <p class="card-mbti">INTJ</p>
-                    <p class="card-text">WHAEVER.I.DO</p>
+                  <h5 class="card-name">김도희</h5>
+                  <p class="card-mbti">INTJ</p>
+                  <p class="card-text">WHAEVER.I.DO</p>
                 </div>
               </div>
             </div>
             <div class="col">
               <div class="card">
-                <img src="static/images/mimoji_face_minji.png" class="card-img-top" alt="...">
+                <img
+                  src="static/images/mimoji_face_minji.png"
+                  class="card-img-top"
+                  alt="..."
+                />
                 <div class="card-body">
-                    <h5 class="card-name">김민지</h5>
-                    <p class="card-mbti">ISFJ</p>
-                    <p class="card-text">캠프가 끝나면 개발자로 불릴 수 있도록</p>
+                  <h5 class="card-name">김민지</h5>
+                  <p class="card-mbti">ISFJ</p>
+                  <p class="card-text">캠프가 끝나면 개발자로 불릴 수 있도록</p>
                 </div>
               </div>
             </div>
             <div class="col">
               <div class="card">
-                <img src="static/images/mimoji_face_gayeon.png" class="card-img-top" alt="...">
+                <img
+                  src="static/images/mimoji_face_gayeon.png"
+                  class="card-img-top"
+                  alt="..."
+                />
                 <div class="card-body">
-                    <h5 class="card-name">김가연</h5>
-                    <p class="card-mbti">ENFJ</p>
-                    <p class="card-text">생각한 대로 이루어진다</p>
+                  <h5 class="card-name">김가연</h5>
+                  <p class="card-mbti">ENFJ</p>
+                  <p class="card-text">생각한 대로 이루어진다</p>
                 </div>
               </div>
             </div>
             <div class="col">
               <div class="card">
-                <img src="static/images/mimoji_face_sungbin.png" class="card-img-top" alt="...">
+                <img
+                  src="static/images/mimoji_face_sungbin.png"
+                  class="card-img-top"
+                  alt="..."
+                />
                 <div class="card-body">
-                    <h5 class="card-name">홍성빈</h5>
-                    <p class="card-mbti">ESTJ</p>
-                    <p class="card-text">스스로의 믿음을 잃지 마라</p>
+                  <h5 class="card-name">홍성빈</h5>
+                  <p class="card-mbti">ESTJ</p>
+                  <p class="card-text">스스로의 믿음을 잃지 마라</p>
                 </div>
               </div>
             </div>
             <div class="col">
               <div class="card">
-                <img src="static/images/mimoji_face_jihyun.png" class="card-img-top" alt="...">
+                <img
+                  src="static/images/mimoji_face_jihyun.png"
+                  class="card-img-top"
+                  alt="..."
+                />
                 <div class="card-body">
-                    <h5 class="card-name">강지현</h5>
-                    <p class="card-mbti">ISTP</p>
-                    <p class="card-text">성실하게 노력하겠습니다!</p>
+                  <h5 class="card-name">강지현</h5>
+                  <p class="card-mbti">ISTP</p>
+                  <p class="card-text">성실하게 노력하겠습니다!</p>
                 </div>
               </div>
             </div>
@@ -133,9 +169,67 @@
       <!-- 모달 -->
       <div class="modal">
         <div class="modal-body">
+          <button class="btn-close-modal">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <div class="modal-body2">
+            <div class="modal-name">
+              <h1>
+                김가연
+                <p class="mbti">ENFJ</p>
+              </h1>
+            </div>
+
+            <p class="modal-sentence">생각한 대로 이루어진다</p>
+
+            <div class="modal-emoticon">
+              <div class="speech speech-bubble">🐶</div>
+              <div class="speech speech-bubble-2">🏋</div>
+            </div>
+
+            <div class="modal-character">
+              <img
+                src="https://media.bunjang.co.kr/product/228746928_1_1688282259_w360.jpg"
+                alt="Your Image"
+              />
+            </div>
+
+            <a href="https://example.com" target="_blank"
+              ><button type="button" class="btn-close-modal">BLOG</button></a
+            >
+          </div>
+
           <button class="btn-close-modal">닫기</button>
           <div class="modal-top"></div>
-          <div class="modal-bottom"></div>
+          <div class="modal-bottom">
+            <div class="profile-block">
+              <h3>소개 부탁드립니다.</h3>
+              <p>
+                캠프가 끝나면 개발자로 불릴 수 있기를 꿈꾸고 있는 비전공자
+                김민지입니다!
+              </p>
+            </div>
+            <div class="profile-block">
+              <h3>장점은 뭐라고 생각하시나요?</h3>
+              <p>
+                긍정적이고 무던한 성격이 제 장점입니다. 실패를 경험해도 좌절하기
+                보다는 "그럴 수 있지~"라며 넘기고 앞을 바라보는 타입입니다. 크게
+                감정기복이 없다는 점도 차분히 일을 수행하고 사람들과 소통하는
+                데에 도움이 되는 성격이라고 생각합니다.
+              </p>
+            </div>
+            <div class="profile-block">
+              <h3>자신의 스타일과 협업할 때의 스타일을 말해주세요.</h3>
+              <p>
+                저는 기록하고 정리하는 것을 좋아합니다. 큰 그림을 그린 다음
+                차근차근 해야 할 일들을 정리해서 하나씩 해 나가는 편입니다. 협업
+                시에는 모두의 의견을 수용하고 존중하려 노력하고, 서로 간의
+                친절과 배려를 중요시 여기는 타입입니다. 밀고 나가야 할 때는
+                확실히 의견 주장을 하지만, 그 과정에서 서로의 기분이 상하지
+                않도록 언어의 전달과 커뮤니케이션 방식에 신경쓰는 스타일입니다.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
       <div class="btn-open-modal">모달 클릭 테스트</div>
