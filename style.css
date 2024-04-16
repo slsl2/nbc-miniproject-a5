@@ -34,6 +34,92 @@ header {
   height: 100vh;
 }
 
+.whole-box {
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  height: 100vh;
+  align-items: center;
+}
+
+.sehongseongbinction-team {
+  display: flex;
+  width: 930px;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.team-title{
+  color: #1D503D;
+  margin: 0px;
+}
+
+
+.team-list {
+  list-style: disc;
+  padding: 0px 20px;
+}
+
+.team-list li {
+  margin: 10px 0px;
+}
+
+/* 흰색 바탕 */
+.include-circle {
+  border: thin solid black;
+  width: 130px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background-color: white;
+  margin-right: 60px;
+
+}
+
+.int-teampic img {
+  object-fit: cover;
+  float: left;
+  border-radius: 20px;
+}
+
+.int-box {
+  border: thin solid black;
+  width: 425px;
+  height: 350px;
+  position: relative;
+  background-color: #E4E4E4;
+  float: left;
+  display: flex;
+  border-radius: 20px;
+  padding: 20px;
+  
+
+  /* 폰트 */
+  font-family: "Noto  Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  color: #393939;
+}
+
+/* 팀 약속 */
+.team-promise {
+  border: thin solid black;
+  border-radius: 20px;
+  width: 930px;
+  height: 200px;
+  background-color: #E4E4E4;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  flex-direction: column;
+  align-items: center;
+}
+
+
 footer {
   font-family: "Noto Sans KR", sans-serif;
   background-color: #e4e4e4;
@@ -50,3 +136,4 @@ footer {
 .github-ids a:hover {
   color: rgb(116, 116, 116);
 }
+
