@@ -50,3 +50,55 @@ footer {
 .github-ids a:hover {
   color: rgb(116, 116, 116);
 }
+
+/* 프로필 카드 */
+.members-cards {
+  width: 1200px;
+  margin: 20px auto;
+}
+.card {
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  border-radius: 1rem;
+  border-color: #000;
+  height: 400px;
+}
+
+.card-img-top {
+  background-color: #D5EBFF;
+  padding: 1em;
+  border-radius: 1rem 1rem 0 0;
+  height: 218.8px;
+}
+
+.col:nth-child(2n) .card-img-top {
+  background-color: #DCF9EA;
+}
+
+.card-body {
+  background-color: #fff;
+  text-align: center;
+  overflow: auto;
+  border-radius: 0 0 1rem 1rem;
+}
+
+.card-name {
+  font-weight: 700;
+  font-size: 1.5em;
+  margin: 10px 0;
+}
+
+.card-mbti {
+  font-weight: 900;
+  font-size: 1.2em;
+  color: #D5EBFF;
+  -webkit-text-stroke: 0.05em #000;
+  margin-bottom: 16px;
+}
+
+.card-text {
+  line-height: 1.5em;
+  margin: 20px 0;
+}
