@@ -48,12 +48,14 @@ header {
 }
 
 .main {
-  height: 100vh;
   padding-top: 100px;
   font-family: "Noto Sans KR", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* 팀 이름, 프로젝트명 */
@@ -61,38 +63,30 @@ header {
   padding: 2rem;
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .title-div {
   width: 80%;
   max-width: 25rem;
   text-align: center;
+  margin: 0 auto;
 }
 
 #title-logo {
   width: 100%;
 }
 
-.whole-box {
-  display: flex;
-  flex-direction: column;
-  justify-content:center;
-  height: 100vh;
-  align-items: center;
+/* 팀 소개 */
+
+.section-team {
+  margin: 2rem;
 }
 
-.sehongseongbinction-team {
-  display: flex;
-  width: 930px;
-  justify-content: space-between;
-  align-items: center;
-
-}
-.team-title{
-  color: #1D503D;
+.team-title {
+  color: #1d503d;
   margin: 0px;
 }
-
 
 .team-list {
   list-style: disc;
@@ -114,12 +108,17 @@ header {
   border-radius: 20px;
   background-color: white;
   margin-right: 60px;
+}
 
+.int-teampic {
+  display: flex;
+  width: 930px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .int-teampic img {
   object-fit: cover;
-  float: left;
   border-radius: 20px;
 }
 
@@ -127,13 +126,10 @@ header {
   border: thin solid black;
   width: 425px;
   height: 350px;
-  position: relative;
-  background-color: #E4E4E4;
-  float: left;
+  background-color: #e4e4e4;
   display: flex;
   border-radius: 20px;
   padding: 20px;
-  
 
   /* 폰트 */
   font-family: "Noto  Sans KR", sans-serif;
@@ -149,7 +145,7 @@ header {
   border-radius: 20px;
   width: 930px;
   height: 200px;
-  background-color: #E4E4E4;
+  background-color: #e4e4e4;
   margin-top: 30px;
   display: flex;
   justify-content: center;
@@ -158,26 +154,8 @@ header {
   align-items: center;
 }
 
-
-footer {
-  font-family: "Noto Sans KR", sans-serif;
-  background-color: #e4e4e4;
-  padding: 1rem;
-  text-align: center;
-}
-
-.github-ids a {
-  text-decoration: none;
-  color: #393939;
-  font-size: 0.8rem;
-}
-
-.github-ids a:hover {
-  color: rgb(116, 116, 116);
-}
-
 /* 프로필 카드 */
-.members-cards {
+.section-members {
   width: 1200px;
   margin: 20px auto;
 }
@@ -236,7 +214,7 @@ footer {
 /* 모달 시작 */
 /* 배경을 어두운 레이어로 덮기 */
 .modal {
-  position: absolute;
+  position: fixed;
   display: none;
   justify-content: center;
   top: 0;
@@ -244,13 +222,16 @@ footer {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.712);
+  z-index: 4;
+  overflow-y: auto;
 }
 
 /* 모달 본체 */
 .modal-body {
-  position: absolute;
+  position: fixed;
   top: 50%;
-  margin: 40px;
+  left: 50%;
+  transform: translate(-50%, -50%);
   max-width: 1000px;
   max-height: 80%;
   text-align: center;
@@ -258,53 +239,14 @@ footer {
   border: solid 10px #939393;
   border-radius: 10px;
   box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
-  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   overflow-y: auto;
 }
 
 .modal-body::-webkit-scrollbar {
   display: none;
-}
-
-.modal-top {
-  height: 100px;
-  background-color: #1d503d;
-  margin: 20px;
-}
-
-.modal-bottom {
-  margin: 20px;
-}
-
-.profile-block {
-  padding: 30px 20px;
-  text-align: left;
-  margin-top: 20px;
-  border-radius: 20px;
-  font-family: "Noto Sans KR", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-}
-
-.profile-block:nth-child(odd) {
-  color: black;
-  background-color: white;
-}
-
-.profile-block:nth-child(even) {
-  color: white;
-  border: 3px solid white;
-}
-
-.profile-block h3 {
-  font-size: 1.4rem;
-  font-weight: 600; /*굵기*/
-}
-
-.profile-block p {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 500; /*굵기*/
 }
 
 .btn-close-modal {
@@ -316,27 +258,16 @@ footer {
   border-radius: 50px;
   border: none;
 }
-.modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-.modal-body2 {
+
+.modal-top {
   font-family: "Noto Sans KR", sans-serif;
   background-color: #1d503d;
   color: white;
   border-radius: 10px;
   box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
-  width: 80%;
-  max-width: 800px;
-  margin: 0 auto;
+  width: 100%;
+  margin: 20px;
   padding: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .modal-name {
@@ -413,14 +344,10 @@ footer {
   border-color: #fff transparent transparent transparent;
 }
 
-.btn-close-modal {
+.btn-blog {
   font-family: "Noto Sans KR", sans-serif;
   width: 60px;
-  height: 35px;
-  position: absolute;
-  top: 92%;
-  left: 8%;
-  transform: translate(-50%, -50%);
+  height: 60px;
   font-size: 100%;
   border-radius: 10px;
 }
@@ -429,4 +356,58 @@ footer {
   position: relative;
   top: 0;
   left: 20%;
+}
+
+.modal-bottom {
+  margin: 20px;
+}
+
+.profile-block {
+  padding: 30px 20px;
+  text-align: left;
+  margin-top: 20px;
+  border-radius: 20px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.profile-block:nth-child(odd) {
+  color: black;
+  background-color: white;
+}
+
+.profile-block:nth-child(even) {
+  color: white;
+  border: 3px solid white;
+}
+
+.profile-block h3 {
+  font-size: 1.4rem;
+  font-weight: 600; /*굵기*/
+}
+
+.profile-block p {
+  margin-top: 0.8rem;
+  font-size: 1rem;
+  font-weight: 500; /*굵기*/
+  line-height: 1.5rem;
+}
+
+/* footer */
+footer {
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: #e4e4e4;
+  padding: 1rem;
+  text-align: center;
+}
+
+.github-ids a {
+  text-decoration: none;
+  color: #393939;
+  font-size: 0.8rem;
+}
+
+.github-ids a:hover {
+  color: rgb(116, 116, 116);
 }
