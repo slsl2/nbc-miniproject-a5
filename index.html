@@ -22,23 +22,31 @@
   </head>
   <body>
     <header>
-      <div class="header-logo">Home</div>
-      <div class="header-right">
-        <span>My</span>
-        <span>Else</span>
+      <div class="header-logo">
+        <a href="#nav-top"><img src="/logoheader.svg" /></a>
+      </div>
+      <div class="navbar">
+        <a href="#nav-team">팀 소개</a>
+        <span>ㅣ</span>
+        <a href="#nav-members">팀원 프로필</a>
+        <span>ㅣ</span>
+        <a href="nav-comment">방명록</a>
       </div>
     </header>
-    <div class="main">
+    <div id="nav-top" class="main">
       <!-- 팀 이름, 프로젝트명 -->
       <section class="section-title">
-        <div></div>
+        <div class="title-div">
+          <img id="title-logo" src="/logotitle.svg" />
+          <p>저희 팀을 소개합니다.</p>
+        </div>
       </section>
       <!-- 팀 소개 -->
-      <section class="section-team"></section>
+      <section id="nav-team" class="section-team"></section>
       <!-- 프로필 카드 -->
-      <section class="section-members"></section>
+      <section id="nav-members" class="section-members"></section>
       <!-- 방명록 -->
-      <section class="section-comment"></section>
+      <section id="nav-comment" class="section-comment"></section>
       <!-- 모달 -->
       <div class="modal">
         <div class="modal-body">
@@ -69,14 +77,30 @@
       </script>
     </div>
     <footer>
-      <a id="github-logo" href="https://github.com/slsl2/nbc-miniproject-a5">
+      <a
+        id="github-logo"
+        href="https://github.com/slsl2/nbc-miniproject-a5"
+        target="_blank"
+      >
         <img src="logogithub.svg" alt="github logo" />
         <div class="github-ids">
-          <a href="https://github.com/iamheroine">@iamheroine</a>
-          <a href="https://github.com/slsl2">@slsl2</a>
-          <a href="https://github.com/joyeverything">@joyeverything</a>
-          <a href="https://github.com/seongbin1013">@seongbin1013</a>
-          <a href="https://github.com/KANGJIHYEON1121">@KANGJIHYEON1121</a>
+          <a href="https://github.com/iamheroine" target="_blank"
+            >@iamheroine</a
+          >
+          <span>ㅣ</span>
+          <a href="https://github.com/slsl2" target="_blank">@slsl2</a>
+          <span>ㅣ</span>
+          <a href="https://github.com/joyeverything" target="_blank"
+            >@joyeverything</a
+          >
+          <span>ㅣ</span>
+          <a href="https://github.com/seongbin1013" target="_blank"
+            >@seongbin1013</a
+          >
+          <span>ㅣ</span>
+          <a href="https://github.com/KANGJIHYEON1121" target="_blank"
+            >@KANGJIHYEON1121</a
+          >
         </div>
       </a>
     </footer>
