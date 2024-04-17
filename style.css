@@ -77,6 +77,16 @@ header {
   width: 100%;
 }
 
+/* section 이름 줄 */
+.section-name {
+  font-size: 40px;
+  text-align: center;
+  padding: 70px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 800;
+  color: #1d503d;
+}
+
 /* 팀 소개 */
 .section-team {
   margin: 2rem;
