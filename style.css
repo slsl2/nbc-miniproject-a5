@@ -77,7 +77,7 @@ header {
   width: 100%;
 }
 
-/* 팀 소개 */
+/* 팀 소개 */ 
 .section-team {
   margin: 2rem;
 }
@@ -85,29 +85,32 @@ header {
 .team-title {
   color: #1d503d;
   margin: 0px;
+  font-size: 1.3rem;
 }
 
 .team-list {
   list-style: disc;
   padding: 0px 20px;
+  line-height: 120%
 }
 
 .team-list li {
   margin: 10px 0px;
 }
 
-/* 흰색 바탕 */
 .include-circle {
   border: thin solid black;
   width: 130px;
-  height: 50px;
+  /* height: 50px; */
+  padding: 15px 0px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 20px;
+  border-radius: 30px;
   background-color: white;
   margin-right: 60px;
-}
+  box-shadow: inset 0 7px 9px -7px rgba(0,0,0,0.4);}
 
 .int-teampic {
   display: flex;
@@ -119,6 +122,8 @@ header {
 .int-teampic img {
   object-fit: cover;
   border-radius: 20px;
+  border: 1px solid black;
+  box-shadow:  0 4px 2px -2px gray;
 }
 
 .int-box {
@@ -129,7 +134,7 @@ header {
   display: flex;
   border-radius: 20px;
   padding: 20px;
-
+  box-shadow: 0 4px 2px -2px gray;;
   /* 폰트 */
   font-family: 'Noto  Sans KR', sans-serif;
   font-optical-sizing: auto;
@@ -138,7 +143,6 @@ header {
   color: #393939;
 }
 
-/* 팀 약속 */
 .team-promise {
   border: thin solid black;
   border-radius: 20px;
@@ -148,9 +152,37 @@ header {
   margin-top: 30px;
   display: flex;
   justify-content: center;
-  padding-top: 10px;
+  padding-top: 00px;
   flex-direction: column;
   align-items: center;
+  box-shadow: 0 4px 2px -2px gray;;
+}
+
+.team-promise-list, 
+  .team-promise-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.team-promise-title {
+  margin-right: 0px;
+}
+
+@media screen and (max-width: 480px) {
+  .int-teampic {
+    flex-direction: column;
+  }
+
+  
+  .int-box {  
+    margin-top: 30px;
+  }
+
+  .team-promise {
+    width: 100%px;
+  }
 }
 
 /* 프로필 카드 */
