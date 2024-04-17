@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>오히려좋조</title>
-    <link rel="stylesheet" href="style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -18,25 +17,150 @@
       href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Noto+Sans+KR:wght@100..900&display=swap"
       rel="stylesheet"
     />
-    <script></script>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/c215d26fd2.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <header>
-      <div class="header-logo">Home</div>
-      <div class="header-right">
-        <span>My</span>
-        <span>Else</span>
+      <div class="header-logo">
+        <a href="#nav-top"><img src="/static/images/logoheader.svg" /></a>
+      </div>
+      <div class="navbar">
+        <a href="#nav-team">팀 소개</a>
+        <span>ㅣ</span>
+        <a href="#nav-members">팀원 프로필</a>
+        <span>ㅣ</span>
+        <a href="nav-comment">방명록</a>
       </div>
     </header>
-    <div class="main">
+    <div id="nav-top" class="main">
       <!-- 팀 이름, 프로젝트명 -->
       <section class="section-title">
-        <div></div>
+        <div class="title-div">
+          <img id="title-logo" src="/static/images/logotitle.svg" />
+          <p>저희 팀을 소개합니다.</p>
+        </div>
       </section>
       <!-- 팀 소개 -->
-      <section class="section-team"></section>
+      <section id="nav-team" class="section-team">
+        <div class="int-teampic">
+          <img
+            src="/static/images/오히려좋조.png"
+            alt="오히려좋조"
+            width="425px"
+            height="350px"
+          />
+          <div class="int-box">
+            <div class="team-left">
+              <div class="include-circle">
+                <h3 class="team-title">팀 특징</h3>
+              </div>
+              <ul class="team-list">
+                <li>모두 비전공자이다</li>
+                <li>초보가 많다</li>
+                <li>MBTI가 겹치지 않는다</li>
+              </ul>
+            </div>
+            <div class="team-right">
+              <div class="include-circle">
+                <h3 class="team-title">팀 목표</h3>
+              </div>
+              <ul class="team-list">
+                <li>맡은 일에 성실히 일하기</li>
+                <li>배운걸 모두 흡수해서 내 거로 만들기</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="team-promise">
+          <div class="include-circle">
+            <h3 class="team-title">팀 약속</h3>
+          </div>
+          <ul class="team-list">
+            <li>캠 켜서 참여</li>
+            <li>상대 존중하기 / 예쁜 말 쓰기(~님,존댓말)</li>
+            <li>시작과 끝에 모두 인사하기 (들어오면서 - 안녕하세요)</li>
+          </ul>
+        </div>
+      </section>
       <!-- 프로필 카드 -->
-      <section class="section-members"></section>
+      <section id="nav-members" class="section-members">
+        <div id="card" class="row row-cols-1 row-cols-md-5 g-4">
+          <div class="col">
+            <div class="card">
+              <img
+                src="static/images/mimoji_face_doehee.png"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-name">김도희</h5>
+                <p class="card-mbti">INTJ</p>
+                <p class="card-text">WHAEVER.I.DO</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img
+                src="static/images/mimoji_face_minji.png"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-name">김민지</h5>
+                <p class="card-mbti">ISFJ</p>
+                <p class="card-text">캠프가 끝나면 개발자로 불릴 수 있도록</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card" id="btn-open-modal">
+              <img
+                src="static/images/mimoji_face_gayeon.png"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-name">김가연</h5>
+                <p class="card-mbti">ENFJ</p>
+                <p class="card-text">생각한 대로 이루어진다</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img
+                src="static/images/mimoji_face_sungbin.png"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-name">홍성빈</h5>
+                <p class="card-mbti">ESTJ</p>
+                <p class="card-text">스스로의 믿음을 잃지 마라</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img
+                src="static/images/mimoji_face_jihyun.png"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-name">강지현</h5>
+                <p class="card-mbti">ISTP</p>
+                <p class="card-text">성실하게 노력하겠습니다!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- 방명록 -->
       <section class="section-comment">
         <!-- 댓글 입력 div -->
@@ -100,18 +224,112 @@
           </div>
         </div>
       </section>
+      <section id="nav-comment" class="section-comment"></section>
+      <!-- 모달 -->
+      <div class="modal">
+        <div class="modal-body">
+          <div class="close-modal-div">
+            <button class="btn-close-modal">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <div class="modal-top">
+            <div class="modal-name">
+              <h1>
+                김가연
+                <p class="mbti">ENFJ</p>
+              </h1>
+            </div>
+            <p class="modal-sentence">생각한 대로 이루어진다</p>
+            <div class="modal-emoticon">
+              <div class="speech speech-bubble">🐶</div>
+              <div class="speech speech-bubble-2">🏋</div>
+            </div>
+            <div class="modal-character">
+              <img
+                src="https://media.bunjang.co.kr/product/228746928_1_1688282259_w360.jpg"
+                alt="Your Image"
+              />
+            </div>
+            <a href="https://example.com" target="_blank"
+              ><button type="button" class="btn-blog">BLOG</button></a
+            >
+          </div>
+          <div class="modal-bottom">
+            <div class="profile-block">
+              <h3>소개 부탁드립니다.</h3>
+              <p>
+                안녕하세요! 부트캠프에서 최대한 많은 정보를 배우고 올해 안에!!
+                개발자라는 꿈을 이루고 싶은 비전공자 김가연입니다.
+              </p>
+            </div>
+            <div class="profile-block">
+              <h3>장점은 뭐라고 생각하시나요?</h3>
+              <p>
+                저는 긍정적인 성격으로 같은 상황에도 스트레스를 적게 받는다는
+                장점이 있습니다. 문제가 발생해도 긍정적인 마음을 가지고 있으면
+                보다 쉽게 해결되는 편이고 해결하는 과정 속에서 배울 점을 많이
+                찾을 수 있기 때문에 긍정적인 성격이 저의 장점이라고 생각합니다.
+              </p>
+            </div>
+            <div class="profile-block">
+              <h3>자신의 스타일과 협업할 때의 스타일을 말해주세요.</h3>
+              <p>
+                저는 해결되지 않으면 포기하지 않고 끝까지 방법을 찾는
+                스타일입니다. 많은 시간이 소요될 때도 있지만 방법을 찾고 날 때의
+                뿌듯함은 잊을 수 없는 거 같아요! 협업할 때는 팀원들과 많은
+                소통을 하는 편입니다. 사소한 의견이나 아이디어도 공유하며
+                피드백을 받으면 더 나은 결과물이 나오기 때문에 의견 공유를 가장
+                중요하게 생각합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        const modal = document.querySelector(".modal");
+        const btnOpenModal = document.querySelector("#btn-open-modal");
+        const btnCloseModal = document.querySelector(".btn-close-modal");
+        /* 모달 열기 */
+        btnOpenModal.addEventListener("click", () => {
+          modal.style.display = "flex";
+        });
+        /* 버튼 클릭시 모달 닫기 */
+        btnCloseModal.addEventListener("click", () => {
+          modal.style.display = "none";
+        });
+        /* 외부영역 클릭시 모달 닫기 (제이쿼리) */
+        $(document).mouseup(function (e) {
+          if ($(".modal").has(e.target).length === 0) {
+            $(".modal").hide();
+          }
+        });
+      </script>
     </div>
     <footer>
-      <a id="github-logo" href="https://github.com/slsl2/nbc-miniproject-a5">
-        <img src="logogithub.svg" alt="github logo" />
-        <div class="github-ids">
-          <a href="https://github.com/iamheroine">@iamheroine</a>
-          <a href="https://github.com/slsl2">@slsl2</a>
-          <a href="https://github.com/joyeverything">@joyeverything</a>
-          <a href="https://github.com/seongbin1013">@seongbin1013</a>
-          <a href="https://github.com/KANGJIHYEON1121">@KANGJIHYEON1121</a>
-        </div>
-      </a>
+      <a
+        id="github-logo"
+        href="https://github.com/slsl2/nbc-miniproject-a5"
+        target="_blank"
+        ><img src="/static/images/logogithub.svg" alt="github logo"
+      /></a>
+      <div class="github-ids">
+        <a href="https://github.com/iamheroine" target="_blank">@iamheroine</a>
+        <span>ㅣ</span>
+        <a href="https://github.com/slsl2" target="_blank">@slsl2</a>
+        <span>ㅣ</span>
+        <a href="https://github.com/joyeverything" target="_blank"
+          >@joyeverything</a
+        >
+        <span>ㅣ</span>
+        <a href="https://github.com/seongbin1013" target="_blank"
+          >@seongbin1013</a
+        >
+        <span>ㅣ</span>
+        <a href="https://github.com/KANGJIHYEON1121" target="_blank"
+          >@KANGJIHYEON1121</a
+        >
+      </div>
     </footer>
   </body>
 </html>
