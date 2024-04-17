@@ -162,6 +162,68 @@
         </div>
       </section>
       <!-- 방명록 -->
+      <section class="section-comment">
+        <!-- 댓글 입력 div -->
+        <div id="" class="input-box">
+          <p class="title-name">방명록</p>
+          <input id="user-name" type="text" placeholder=" 닉네임" />
+
+          <textarea
+            name=""
+            id="input-comment"
+            cols="95"
+            rows="4"
+            placeholder=" 내용을 입력해주세요."
+            class="comment"
+          ></textarea>
+          <!-- 글 남기기 버튼 -->
+          <div>
+            <button
+              type="button"
+              id="upload-btn"
+              class="btn btn-outline-light button"
+            >
+              글 남기기
+            </button>
+          </div>
+        </div>
+
+        <!-- 댓글 확인 div -->
+        <div id="comment-result">
+          <p id="guest-name">
+            홍길동 <span class="data-time">2024.04.16 05:00</span>
+          </p>
+
+          <textarea
+            name=""
+            id="print-comment"
+            cols="95"
+            rows="4"
+            class="comment"
+            readonly
+          >
+화이팅!!</textarea
+          >
+
+          <!-- 수정 삭제 버튼 -->
+          <div>
+            <button
+              type="button"
+              id="deleted-btn"
+              class="btn btn-danger button"
+            >
+              삭제
+            </button>
+            <button
+              type="button"
+              id="changed-btn"
+              class="btn btn-outline-dark button"
+            >
+              수정
+            </button>
+          </div>
+        </div>
+      </section>
       <section id="nav-comment" class="section-comment"></section>
       <!-- 모달 -->
       <div class="modal">
