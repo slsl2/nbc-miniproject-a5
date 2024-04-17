@@ -179,6 +179,10 @@ header {
   background-color: #dcf9ea;
 }
 
+.col:nth-child(2n) .card-mbti {
+  color: #DCF9EA;
+}
+
 .card-body {
   background-color: #fff;
   text-align: center;
