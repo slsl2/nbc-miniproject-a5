@@ -49,7 +49,7 @@ header {
 
 .main {
   padding-top: 100px;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
@@ -77,7 +77,17 @@ header {
   width: 100%;
 }
 
-/* 팀 소개 */ 
+/* section 이름 줄 */
+.section-name {
+  font-size: 40px;
+  text-align: center;
+  padding: 70px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 800;
+  color: #1d503d;
+}
+
+/* 팀 소개 */
 .section-team {
   margin: 2rem;
 }
@@ -91,7 +101,7 @@ header {
 .team-list {
   list-style: disc;
   padding: 0px 20px;
-  line-height: 120%
+  line-height: 120%;
 }
 
 .team-list li {
@@ -110,7 +120,8 @@ header {
   border-radius: 30px;
   background-color: white;
   margin-right: 60px;
-  box-shadow: inset 0 7px 9px -7px rgba(0,0,0,0.4);}
+  box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.4);
+}
 
 .int-teampic {
   display: flex;
@@ -123,7 +134,7 @@ header {
   object-fit: cover;
   border-radius: 20px;
   border: 1px solid black;
-  box-shadow:  0 4px 2px -2px gray;
+  box-shadow: 0 4px 2px -2px gray;
 }
 
 .int-box {
@@ -134,9 +145,9 @@ header {
   display: flex;
   border-radius: 20px;
   padding: 20px;
-  box-shadow: 0 4px 2px -2px gray;;
+  box-shadow: 0 4px 2px -2px gray;
   /* 폰트 */
-  font-family: 'Noto  Sans KR', sans-serif;
+  font-family: "Noto  Sans KR", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
@@ -155,11 +166,11 @@ header {
   padding-top: 00px;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 4px 2px -2px gray;;
+  box-shadow: 0 4px 2px -2px gray;
 }
 
-.team-promise-list, 
-  .team-promise-box {
+.team-promise-list,
+.team-promise-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -175,8 +186,7 @@ header {
     flex-direction: column;
   }
 
-  
-  .int-box {  
+  .int-box {
     margin-top: 30px;
   }
 
@@ -191,7 +201,7 @@ header {
   margin: 20px auto;
 }
 .card {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -291,7 +301,7 @@ header {
 }
 
 .modal-top {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   background-color: #1d503d;
   color: white;
   border-radius: 10px;
@@ -323,7 +333,7 @@ header {
   margin: 10px 15px;
   font-size: 45px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  font-family: 'Nanum Brush Script', cursive;
+  font-family: "Nanum Brush Script", cursive;
   z-index: 1;
 }
 
@@ -347,7 +357,7 @@ header {
 }
 
 .speech-bubble:before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -14px;
   left: 40%;
@@ -365,7 +375,7 @@ header {
 }
 
 .speech-bubble-2:before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -14px;
   left: 60%;
@@ -376,7 +386,7 @@ header {
 }
 
 .btn-blog {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   width: 60px;
   height: 60px;
   font-size: 100%;
@@ -398,7 +408,7 @@ header {
   text-align: left;
   margin-top: 20px;
   border-radius: 20px;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
@@ -567,8 +577,9 @@ footer {
   margin-top: 50px;
 }
 
-@media(max-width : 1200px) {
-  .input-box, #comment-result {
+@media (max-width: 1200px) {
+  .input-box,
+  #comment-result {
     width: 400px;
   }
 }

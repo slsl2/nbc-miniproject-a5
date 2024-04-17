@@ -33,7 +33,7 @@
         <span>ㅣ</span>
         <a href="#nav-members">팀원 프로필</a>
         <span>ㅣ</span>
-        <a href="nav-comment">방명록</a>
+        <a href="#nav-comment">방명록</a>
       </div>
     </header>
     <div id="nav-top" class="main">
@@ -46,8 +46,9 @@
       </section>
       <!-- 팀 소개 -->
       <section id="nav-team" class="section-team">
+        <div class="section-name"><span>Our Team</span></div>
         <div class="int-teampic">
-          <img 
+          <img
             src="static/images/오히려좋조.png"
             alt="오히려좋조"
             width="425px"
@@ -77,19 +78,20 @@
         </div>
         <div class="team-promise">
           <div class="team-promise-box">
-          <div class="include-circle team-promise-title">
-            <h3 class="team-title">팀 약속</h3>
+            <div class="include-circle team-promise-title">
+              <h3 class="team-title">팀 약속</h3>
+            </div>
+            <ul class="team-list team-promise-list">
+              <li>캠 켜서 참여</li>
+              <li>상대 존중하기 / 예쁜 말 쓰기(~님,존댓말)</li>
+              <li>시작과 끝에 모두 인사하기 (들어오면서 - 안녕하세요)</li>
+            </ul>
           </div>
-          <ul class="team-list team-promise-list">
-            <li>캠 켜서 참여</li>
-            <li>상대 존중하기 / 예쁜 말 쓰기(~님,존댓말)</li>
-            <li>시작과 끝에 모두 인사하기 (들어오면서 - 안녕하세요)</li>
-          </ul>
-        </div>
         </div>
       </section>
       <!-- 프로필 카드 -->
       <section id="nav-members" class="section-members">
+        <div class="section-name"><span>Team Profile</span></div>
         <div id="card" class="row row-cols-1 row-cols-md-5 g-4">
           <div class="col">
             <div class="card">
@@ -164,48 +166,86 @@
         </div>
       </section>
       <!-- 방명록 -->
-      <section class="section-comment">
-          <!-- 댓글 입력 div -->
-          <div id="" class="input-box">
-            <p class="title-name">방명록</p>
-            <input id="user-name" type="text" placeholder=" 닉네임" />
+      <section id="nav-comment" class="section-comment">
+        <div class="section-name"><span>Guest Comment</span></div>
+        <!-- 댓글 입력 div -->
+        <div id="" class="input-box">
+          <p class="title-name">방명록</p>
+          <input id="user-name" type="text" placeholder=" 닉네임" />
 
-            <textarea name="" id="input-comment" cols="95" rows="4" placeholder=" 내용을 입력해주세요." class="comment"></textarea>
-            <!-- 글 남기기 버튼 -->
-            <div>
-            <button type="button" id="upload-btn" class="btn btn-outline-light button">글 남기기</button>
-            </div>
+          <textarea
+            name=""
+            id="input-comment"
+            cols="95"
+            rows="4"
+            placeholder=" 내용을 입력해주세요."
+            class="comment"
+          ></textarea>
+          <!-- 글 남기기 버튼 -->
+          <div>
+            <button
+              type="button"
+              id="upload-btn"
+              class="btn btn-outline-light button"
+            >
+              글 남기기
+            </button>
           </div>
+        </div>
 
-          <!-- 댓글 확인 div -->
-          <div id="comment-result">
-            <div class="comment-box">
+        <!-- 댓글 확인 div -->
+        <div id="comment-result">
+          <div class="comment-box">
             <p id="guest-name">
               홍길동 <span class="data-time">2024.04.16 05:00</span>
             </p>
             <p id="print-comment">화이팅</p>
 
             <!-- 수정 삭제 버튼 -->
-              <button type="button" id="deleted-btn" class="btn btn-danger button">삭제</button>
-              <button type="button" id="changed-btn" class="btn btn-outline-dark button">수정</button>
-            </div>
+            <button
+              type="button"
+              id="deleted-btn"
+              class="btn btn-danger button"
+            >
+              삭제
+            </button>
+            <button
+              type="button"
+              id="changed-btn"
+              class="btn btn-outline-dark button"
+            >
+              수정
+            </button>
           </div>
-          <div id="comment-result">
-            <div class="comment-box">
+        </div>
+        <div id="comment-result">
+          <div class="comment-box">
             <p id="guest-name">
               홍길동 <span class="data-time">2024.04.16 05:00</span>
             </p>
-            <p id="print-comment">화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅</p>
+            <p id="print-comment">
+              화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅
+            </p>
 
             <!-- 수정 삭제 버튼 -->
-            
-             <button type="button" id="deleted-btn" class="btn btn-danger button">삭제</button>
-              <button type="button" id="changed-btn" class="btn btn-outline-dark button">수정</button>
-            </div>
+
+            <button
+              type="button"
+              id="deleted-btn"
+              class="btn btn-danger button"
+            >
+              삭제
+            </button>
+            <button
+              type="button"
+              id="changed-btn"
+              class="btn btn-outline-dark button"
+            >
+              수정
+            </button>
           </div>
-        
+        </div>
       </section>
-      <section id="nav-comment" class="section-comment"></section>
       <!-- 모달 -->
       <div class="modal">
         <div class="modal-body">
@@ -268,21 +308,21 @@
         </div>
       </div>
       <script>
-        const modal = document.querySelector('.modal');
-        const btnOpenModal = document.querySelector('#btn-open-modal');
-        const btnCloseModal = document.querySelector('.btn-close-modal');
+        const modal = document.querySelector(".modal");
+        const btnOpenModal = document.querySelector("#btn-open-modal");
+        const btnCloseModal = document.querySelector(".btn-close-modal");
         /* 모달 열기 */
-        btnOpenModal.addEventListener('click', () => {
-          modal.style.display = 'flex';
+        btnOpenModal.addEventListener("click", () => {
+          modal.style.display = "flex";
         });
         /* 버튼 클릭시 모달 닫기 */
-        btnCloseModal.addEventListener('click', () => {
-          modal.style.display = 'none';
+        btnCloseModal.addEventListener("click", () => {
+          modal.style.display = "none";
         });
         /* 외부영역 클릭시 모달 닫기 (제이쿼리) */
         $(document).mouseup(function (e) {
-          if ($('.modal').has(e.target).length === 0) {
-            $('.modal').hide();
+          if ($(".modal").has(e.target).length === 0) {
+            $(".modal").hide();
           }
         });
       </script>
