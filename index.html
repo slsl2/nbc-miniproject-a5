@@ -24,8 +24,8 @@
     ></script>
 
     <script type="module">
-// Firebase SDK 라이브러리 가져오기
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+      // Firebase SDK 라이브러리 가져오기
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
       import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
       import {
         collection,
@@ -48,24 +48,25 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebas
       // Firebase 인스턴스 초기화
       const app = initializeApp(firebaseConfig);
       const db = getFirestore(app);
-      
-      // 현재 시간 
-    const currentDate = new Date();
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth() + 1;
-    const day = currentDate.getDate();
-    const hour = currentDate.getHours();
-    const minute = currentDate.getMinutes();
 
-    // 파이어베이스 comment add 함수
-    $("#upload-btn").click(async function () {
+      // 현재 시간
+      const currentDate = new Date();
+      const year = currentDate.getFullYear();
+      const month = currentDate.getMonth() + 1;
+      const day = currentDate.getDate();
+      const hour = currentDate.getHours();
+      const minute = currentDate.getMinutes();
+
+      // 파이어베이스 comment add 함수
+      $("#upload-btn").click(async function () {
         let name = document.getElementById("user-name").value;
         let comment = document.getElementById("input-comment").value;
 
-        let doc = { name: name, 
-            comment: comment, 
-            date: { year, month, day, hour, minute }
-            };
+        let doc = {
+          name: name,
+          comment: comment,
+          date: { year, month, day, hour, minute },
+        };
         await addDoc(collection(db, "comments"), doc);
         window.location.reload();
       });
@@ -75,7 +76,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebas
       docs.forEach((doc) => {
         let row = doc.data();
         console.log(typeof row.date);
-      
+
         let name = row["name"];
         let comment = row["comment"];
         let date = row["date"];
@@ -94,13 +95,9 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebas
           </div>
     </div>`;
 
-    $("#comment-result").append(temp_html);
-
-    });
-
+        $("#comment-result").append(temp_html);
+      });
     </script>
-
-
   </head>
   <body>
     <header>
@@ -182,7 +179,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebas
               <div class="card-body">
                 <h5 class="card-name">김도희</h5>
                 <p class="card-mbti">INTJ</p>
-                <p class="card-text">WHAEVER.I.DO</p>
+                <p class="card-text">WHATEVER.I.DO</p>
               </div>
             </div>
           </div>
@@ -272,9 +269,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebas
           </div>
         </div>
 
-          <!-- 댓글 확인 div -->
-          <div id="comment-result" class = "row row-cols-1 row-cols-md-1 g-4">
-        </div>
+        <!-- 댓글 확인 div -->
+        <div id="comment-result" class="row row-cols-1 row-cols-md-1 g-4"></div>
       </section>
       <!-- 모달 -->
       <div class="modal" id="modal-dh">
