@@ -1,153 +1,167 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>오히려좋조</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Noto+Sans+KR:wght@100..900&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://kit.fontawesome.com/c215d26fd2.js" crossorigin="anonymous"></script>
-</head>
-
-<body>
-  <header>
-    <div class="header-logo">
-      <a href="#nav-top"><img src="/static/images/logoheader.svg" /></a>
-    </div>
-    <div class="navbar">
-      <a href="#nav-team">팀 소개</a>
-      <span>ㅣ</span>
-      <a href="#nav-members">팀원 프로필</a>
-      <span>ㅣ</span>
-      <a href="nav-comment">방명록</a>
-    </div>
-  </header>
-  <div id="nav-top" class="main">
-    <!-- 팀 이름, 프로젝트명 -->
-    <section class="section-title">
-      <div class="title-div">
-        <img id="title-logo" src="/static/images/logotitle.svg" />
-        <p>저희 팀을 소개합니다.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>오히려좋조</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/c215d26fd2.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <div class="header-logo">
+        <a href="#nav-top"><img src="static/images/logoheader.svg" /></a>
       </div>
-    </section>
-    <!-- 팀 소개 -->
-    <section id="nav-team" class="section-team">
-      <div class="int-teampic">
-        <img src="/static/images/오히려좋조.png" alt="오히려좋조" width="425px" height="350px" />
-        <div class="int-box">
-          <div class="team-left">
-            <div class="include-circle">
-              <h3 class="team-title">팀 특징</h3>
+      <div class="navbar">
+        <a href="#nav-team">팀 소개</a>
+        <span>ㅣ</span>
+        <a href="#nav-members">팀원 프로필</a>
+        <span>ㅣ</span>
+        <a href="#nav-comment">방명록</a>
+      </div>
+    </header>
+    <div id="nav-top" class="main">
+      <!-- 팀 이름, 프로젝트명 -->
+      <section class="section-title">
+        <div class="title-div">
+          <img id="title-logo" src="static/images/logotitle.svg " />
+          <p>저희 팀을 소개합니다.</p>
+        </div>
+      </section>
+      <!-- 팀 소개 -->
+      <section id="nav-team" class="section-team">
+        <div class="section-name"><span>Our Team</span></div>
+        <div class="int-teampic">
+          <img
+            src="static/images/오히려좋조.png"
+            alt="오히려좋조"
+            width="425px"
+            height="350px"
+          />
+          <div class="int-box">
+            <div class="team-left">
+              <div class="include-circle">
+                <h3 class="team-title">팀 특징</h3>
+              </div>
+              <ul class="team-list">
+                <li>모두 비전공자이다</li>
+                <li>초보가 많다</li>
+                <li>MBTI가 겹치지 않는다</li>
+              </ul>
             </div>
-            <ul class="team-list">
-              <li>모두 비전공자이다</li>
-              <li>초보가 많다</li>
-              <li>MBTI가 겹치지 않는다</li>
+            <div class="team-right">
+              <div class="include-circle">
+                <h3 class="team-title">팀 목표</h3>
+              </div>
+              <ul class="team-list">
+                <li>맡은 일에 성실히 일하기</li>
+                <li>배운걸 모두 흡수해서 내 거로 만들기</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="team-promise">
+          <div class="team-promise-box">
+            <div class="include-circle team-promise-title">
+              <h3 class="team-title">팀 약속</h3>
+            </div>
+            <ul class="team-list team-promise-list">
+              <li>캠 켜서 참여</li>
+              <li>상대 존중하기 / 예쁜 말 쓰기(~님,존댓말)</li>
+              <li>시작과 끝에 모두 인사하기 (들어오면서 - 안녕하세요)</li>
             </ul>
           </div>
-          <div class="team-right">
-            <div class="include-circle">
-              <h3 class="team-title">팀 목표</h3>
-            </div>
-            <ul class="team-list">
-              <li>맡은 일에 성실히 일하기</li>
-              <li>배운걸 모두 흡수해서 내 거로 만들기</li>
-            </ul>
-          </div>
         </div>
-      </div>
-      <div class="team-promise">
-        <div class="include-circle">
-          <h3 class="team-title">팀 약속</h3>
-        </div>
-        <ul class="team-list">
-          <li>캠 켜서 참여</li>
-          <li>상대 존중하기 / 예쁜 말 쓰기(~님,존댓말)</li>
-          <li>시작과 끝에 모두 인사하기 (들어오면서 - 안녕하세요)</li>
-        </ul>
-      </div>
-    </section>
-    <!-- 프로필 카드 -->
-    <section id="nav-members" class="section-members">
-      <div id="card" class="row row-cols-1 row-cols-md-5 g-4">
-        <div class="col">
-          <div class="card">
-            <div class="card-img">
-              <img src="static/images/mimoji_face_doehee.png" class="card-img-top" alt="..." />
-            </div>
-            <div class="card-body">
-              <h5 class="card-name">김도희</h5>
-              <p class="card-mbti">INTJ</p>
-              <p class="card-text">WHAEVER.I.DO</p>
+      </section>
+      <!-- 프로필 카드 -->
+      <section id="nav-members" class="section-members">
+        <div id="card" class="row row-cols-1 row-cols-md-5 g-4">
+          <div class="col">
+            <div class="card">
+              <div class="card-img">
+                <img src="static/images/mimoji_face_doehee.png" class="card-img-top" alt="..." />
+              </div>
+              <div class="card-body">
+                <h5 class="card-name">김도희</h5>
+                <p class="card-mbti">INTJ</p>
+                <p class="card-text">WHAEVER.I.DO</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <div class="card-img">
-              <img src="static/images/mimoji_face_minji.png" class="card-img-top" alt="..." />
-            </div>
-            <div class="card-body">
-              <h5 class="card-name">김민지</h5>
-              <p class="card-mbti">ISFJ</p>
-              <p class="card-text">캠프가 끝나면 개발자로 불릴 수 있도록</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card" id="btn-open-modal">
-            <div class="card-img">
-              <img src="static/images/mimoji_face_gayeon.png" class="card-img-top" alt="..." />
-            </div>
-            <div class="card-body">
-              <h5 class="card-name">김가연</h5>
-              <p class="card-mbti">ENFJ</p>
-              <p class="card-text">생각한 대로 이루어진다</p>
+          <div class="col">
+            <div class="card">
+              <div class="card-img">
+                <img src="static/images/mimoji_face_minji.png" class="card-img-top" alt="..." />
+              </div>
+              <div class="card-body">
+                <h5 class="card-name">김민지</h5>
+                <p class="card-mbti">ISFJ</p>
+                <p class="card-text">캠프가 끝나면 개발자로 불릴 수 있도록</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <div class="card-img">
-              <img src="static/images/mimoji_face_sungbin.png" class="card-img-top" alt="..." />
+          <div class="col">
+            <div class="card" id="btn-open-modal">
+              <div class="card-img">
+                <img src="static/images/mimoji_face_gayeon.png" class="card-img-top" alt="..." />
+              </div>
+              <div class="card-body">
+                <h5 class="card-name">김가연</h5>
+                <p class="card-mbti">ENFJ</p>
+                <p class="card-text">생각한 대로 이루어진다</p>
+              </div>
             </div>
-            <div class="card-body">
-              <h5 class="card-name">홍성빈</h5>
-              <p class="card-mbti">ESTJ</p>
-              <p class="card-text">스스로의 믿음을 잃지 마라</p>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="card-img">
+                <img src="static/images/mimoji_face_sungbin.png" class="card-img-top" alt="..." />
+              </div>
+              <div class="card-body">
+                <h5 class="card-name">홍성빈</h5>
+                <p class="card-mbti">ESTJ</p>
+                <p class="card-text">스스로의 믿음을 잃지 마라</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="card-img">
+                <img src="static/images/mimoji_face_jihyun.png" class="card-img-top" alt="..." />
+              </div>
+              <div class="card-body">
+                <h5 class="card-name">강지현</h5>
+                <p class="card-mbti">ISTP</p>
+                <p class="card-text">성실하게 노력하겠습니다!</p>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col">
-          <div class="card">
-            <div class="card-img">
-              <img src="static/images/mimoji_face_jihyun.png" class="card-img-top" alt="..." />
-            </div>
-            <div class="card-body">
-              <h5 class="card-name">강지현</h5>
-              <p class="card-mbti">ISTP</p>
-              <p class="card-text">성실하게 노력하겠습니다!</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- 방명록 -->
-    <section class="section-comment">
-      <!-- 댓글 입력 div -->
-      <div id="" class="input-box">
-        <p class="title-name">방명록</p>
-        <input id="user-name" type="text" placeholder=" 닉네임" />
-
-        <textarea name="" id="input-comment" cols="95" rows="4" placeholder=" 내용을 입력해주세요." class="comment"></textarea>
+      </section>
+      <!-- 방명록 -->
+      <section id="nav-comment" class="section-comment">
+        <div class="section-name"><span>Guest Comment</span></div>
+        <!-- 댓글 입력 div -->
+        <div id="" class="input-box">
+          <p class="title-name">방명록</p>
+          <input id="user-name" type="text" placeholder=" 닉네임" />
+          <textarea name="" id="input-comment" cols="95" rows="4" placeholder=" 내용을 입력해주세요." class="comment"></textarea>
         <!-- 글 남기기 버튼 -->
         <div>
           <button type="button" id="upload-btn" class="btn btn-outline-light button">
@@ -155,28 +169,59 @@
           </button>
         </div>
       </div>
-
       <!-- 댓글 확인 div -->
       <div id="comment-result">
-        <p id="guest-name">
-          홍길동 <span class="data-time">2024.04.16 05:00</span>
-        </p>
+        <div class="comment-box">
+          <p id="guest-name">
+            홍길동 <span class="data-time">2024.04.16 05:00</span>
+          </p>
+          <p id="print-comment">화이팅</p>
 
-        <textarea name="" id="print-comment" cols="95" rows="4" class="comment" readonly>
-화이팅!!</textarea>
-
-        <!-- 수정 삭제 버튼 -->
-        <div>
-          <button type="button" id="deleted-btn" class="btn btn-danger button">
+          <!-- 수정 삭제 버튼 -->
+          <button
+            type="button"
+            id="deleted-btn"
+            class="btn btn-danger button"
+          >
             삭제
           </button>
-          <button type="button" id="changed-btn" class="btn btn-outline-dark button">
+          <button
+            type="button"
+            id="changed-btn"
+            class="btn btn-outline-dark button"
+          >
+            수정
+          </button>
+        </div>
+      </div>
+      <div id="comment-result">
+        <div class="comment-box">
+          <p id="guest-name">
+            홍길동 <span class="data-time">2024.04.16 05:00</span>
+          </p>
+          <p id="print-comment">
+            화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅
+          </p>
+
+          <!-- 수정 삭제 버튼 -->
+
+          <button
+            type="button"
+            id="deleted-btn"
+            class="btn btn-danger button"
+          >
+            삭제
+          </button>
+          <button
+            type="button"
+            id="changed-btn"
+            class="btn btn-outline-dark button"
+          >
             수정
           </button>
         </div>
       </div>
     </section>
-    <section id="nav-comment" class="section-comment"></section>
     <!-- 모달 -->
     <div class="modal">
       <div class="modal-body">
@@ -185,22 +230,43 @@
             <i class="fa-solid fa-xmark"></i>
           </button>
         </div>
+
         <div class="modal-top">
-          <div class="modal-name">
-            <h1>
-              김가연
-              <p class="mbti">ENFJ</p>
-            </h1>
+          <div class="modal-title">
+            <p class="modal-name">김가연</p>
+            <p class="mbti">ENFJ</p>
           </div>
-          <p class="modal-sentence">생각한 대로 이루어진다</p>
-          <div class="modal-emoticon">
-            <div class="speech speech-bubble">🐶</div>
-            <div class="speech speech-bubble-2">🏋</div>
+
+          <img
+            src="static/images/speech_bubble1.png"
+            alt="speech-bubble"
+            class="bubble-image"
+          />
+          <div class="modal-text">
+            <p>🐶</p>
           </div>
+
+          <img
+            src="static/images/speech_bubble2.png"
+            alt="speech-bubble"
+            class="bubble-image-2"
+          />
+          <div class="modal-text-2">
+            <p>🏋</p>
+          </div>
+
+          <div class="modal-sentence">생각한 대로 이루어진다</div>
+
           <div class="modal-character">
-            <img src="https://media.bunjang.co.kr/product/228746928_1_1688282259_w360.jpg" alt="Your Image" />
+            <img
+              src="static/images/mimoji_body_gayeon.png"
+              alt="Your Image"
+            />
           </div>
-          <a href="https://example.com" target="_blank"><button type="button" class="btn-blog">BLOG</button></a>
+
+          <a href="https://for-cording-cheers.tistory.com/" target="_blank"
+            ><button type="button" class="btn-blog">BLOG</button></a
+          >
         </div>
         <div class="modal-bottom">
           <div class="profile-block">
@@ -254,20 +320,29 @@
     </script>
   </div>
   <footer>
-    <a id="github-logo" href="https://github.com/slsl2/nbc-miniproject-a5" target="_blank"><img
-        src="/static/images/logogithub.svg" alt="github logo" /></a>
+    <a
+      id="github-logo"
+      href="https://github.com/slsl2/nbc-miniproject-a5"
+      target="_blank"
+      ><img src="static/images/logogithub.svg" alt="github logo"
+    /></a>
     <div class="github-ids">
       <a href="https://github.com/iamheroine" target="_blank">@iamheroine</a>
       <span>ㅣ</span>
       <a href="https://github.com/slsl2" target="_blank">@slsl2</a>
       <span>ㅣ</span>
-      <a href="https://github.com/joyeverything" target="_blank">@joyeverything</a>
+      <a href="https://github.com/joyeverything" target="_blank"
+        >@joyeverything</a
+      >
       <span>ㅣ</span>
-      <a href="https://github.com/seongbin1013" target="_blank">@seongbin1013</a>
+      <a href="https://github.com/seongbin1013" target="_blank"
+        >@seongbin1013</a
+      >
       <span>ㅣ</span>
-      <a href="https://github.com/KANGJIHYEON1121" target="_blank">@KANGJIHYEON1121</a>
+      <a href="https://github.com/KANGJIHYEON1121" target="_blank"
+        >@KANGJIHYEON1121</a
+      >
     </div>
   </footer>
 </body>
-
 </html>
