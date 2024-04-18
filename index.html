@@ -27,11 +27,7 @@
       // Firebase SDK 라이브러리 가져오기
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
       import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-      import {
-        collection,
-        addDoc,
-      } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-      import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+      import { collection, addDoc, getDocs, query, orderBy, } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
       // Firebase 구성 정보 설정
       // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -61,7 +57,10 @@
       $("#upload-btn").click(async function () {
         let name = document.getElementById("user-name").value;
         let comment = document.getElementById("input-comment").value;
-
+      // 닉네임, 댓글 케이스 문
+      if (name === '' || comment === '') {
+      alert('댓글을 입력해 주세요.')
+      } else {
         let doc = {
           name: name,
           comment: comment,
@@ -69,13 +68,22 @@
         };
         await addDoc(collection(db, "comments"), doc);
         window.location.reload();
+      }
       });
 
       // 댓글 get 함수
-      let docs = await getDocs(collection(db, "comments"));
+      const q = query(collection(db, "comments"), orderBy("date", "desc"));
+
+      getDocs(q).then((querySnapshot) => {
+      if (querySnapshot.size === 0) {
+      document.getElementById('comment-result').style.display = 'none';
+      }
+    });
+
+      let docs = await getDocs(q);
       docs.forEach((doc) => {
         let row = doc.data();
-        console.log(typeof row.date);
+        console.log(row.length);
 
         let name = row["name"];
         let comment = row["comment"];
@@ -237,14 +245,14 @@
         <!-- 댓글 입력 div -->
         <div id="" class="input-box">
           <p class="title-name">방명록</p>
-          <input id="user-name" type="text" placeholder=" 닉네임" />
+          <input id="user-name" type="text" placeholder="닉네임" />
 
           <textarea
             name=""
             id="input-comment"
             cols="95"
             rows="4"
-            placeholder=" 내용을 입력해주세요."
+            placeholder="내용을 입력해주세요."
             class="comment"
           ></textarea>
           <!-- 글 남기기 버튼 -->
@@ -260,7 +268,9 @@
         </div>
 
         <!-- 댓글 확인 div -->
-        <div id="comment-result" class="row row-cols-1 row-cols-md-1 g-4"></div>
+        <div id="comment-result" class="row row-cols-1 row-cols-md-1 g-4">
+
+        </div>
       </section>
       <!-- 모달 -->
       <div class="modal" id="modal-dh">

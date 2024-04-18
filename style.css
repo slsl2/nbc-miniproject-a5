@@ -517,7 +517,7 @@ footer {
   background-color: #e4e4e4;
   padding: 1rem;
   text-align: center;
-  margin-top: 200px;
+  margin-top: 100px;
 }
 
 .github-ids a {
@@ -557,7 +557,9 @@ footer {
   border-radius: 5px;
   border: 1px solid #a79e9e;
   margin-bottom: 10px;
+  padding: 0px 5px;
   float: left;
+  outline:none;
 }
 
 /* 방명록 간판  */
@@ -585,6 +587,8 @@ footer {
   border: 1px solid #a79e9e;
   resize: none;
   border-radius: 5px;
+  outline:none;
+  padding: 0px 5px;
 }
 
 /* 글 남기기 버튼*/
@@ -599,7 +603,7 @@ footer {
 
 /* 댓글 확인 컨테이너*/
 #comment-result {
-  background-color: #f5f5f5;
+  background-color: #fff;
   width: 1024px;
   height: auto;
   margin: 10px auto 10px auto;
