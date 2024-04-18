@@ -1,4 +1,5 @@
 @import "reset.css";
+/* @import 말고 링크로 다는게 더 빠르다고 합니다 - 튜터님 추천 */
 
 /* 폰트 적용 방법 */
 /* 클래스명, 아이디명 바꿔서 복붙하시면 됩니다 */
@@ -30,6 +31,7 @@ header {
   align-items: center;
   color: white;
   box-shadow: 0 10px 20px 0 white;
+  z-index: 99;
 }
 
 .navbar a {
@@ -195,11 +197,13 @@ header {
   }
 }
 
-/* 프로필 카드 */
+/* 프로필 카드 ; 섹션 */
 .section-members {
   width: 1200px;
   margin: 20px auto;
 }
+
+/* 프로필 카드 */
 .card {
   font-family: "Noto Sans KR", sans-serif;
   font-optical-sizing: auto;
@@ -208,32 +212,40 @@ header {
   border-radius: 1rem;
   border-color: #000;
   height: 400px;
+  width: 220.8px;
+  cursor: pointer;
 }
 
-.card-img-top {
+/* 프로필 카드 ; 이미지 */
+.card-img {
   background-color: #d5ebff;
   padding: 1em;
   border-radius: 1rem 1rem 0 0;
   height: 218.8px;
+  width: 218.8px;
+  display: flex;
 }
-
-.col:nth-child(2n) .card-img-top {
+.card-img-top {
+  padding: 0.25rem;
+}
+.col:nth-child(2n) .card-img {
   background-color: #dcf9ea;
 }
 
+/* 프로필 카드 ; 컨텐츠 */
 .card-body {
   background-color: #fff;
   text-align: center;
   overflow: auto;
   border-radius: 0 0 1rem 1rem;
+  display: flex;
+  flex-direction: column;
 }
-
 .card-name {
   font-weight: 700;
   font-size: 1.5em;
   margin: 10px 0;
 }
-
 .card-mbti {
   font-weight: 900;
   font-size: 1.2em;
@@ -241,10 +253,48 @@ header {
   -webkit-text-stroke: 0.05em #000;
   margin-bottom: 16px;
 }
-
+.col:nth-child(2n) .card-mbti {
+  color: #DCF9EA;
+}
 .card-text {
   line-height: 1.5em;
-  margin: 20px 0;
+  margin: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 프로필 카드 ; 모바일 반응형  */
+@media (max-width: 480px) {
+  .section-members {
+    width: calc(100% - 150px);
+    height: auto;
+  }
+  .card,
+  .card-img,
+  .card-body {
+    width: 100%;
+    height: auto;
+    margin: 5px auto;
+  }
+  .card-body {
+    height: 160px;
+  }
+  .card-img {
+    margin: 0;
+  }
+  .card-img-top {
+    padding: 2rem;
+  }
+}
+/* 부트스트랩 덮어씌우기 */
+@media (min-width: 481px) {
+  .row-cols-md-5 > * {
+      flex: 0 0 auto;
+      width: 20%;
+
+  }
 }
 
 .github-ids span {
@@ -445,7 +495,7 @@ footer {
   background-color: #e4e4e4;
   padding: 1rem;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 .github-ids a {
