@@ -14,8 +14,7 @@
 .noto-sans-kr {
   font-family: "Noto Sans KR", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 500;
-  /*굵기*/
+  font-weight: 500; /*굵기*/
   font-style: normal;
 }
 
@@ -32,7 +31,6 @@ header {
   align-items: center;
   color: white;
   box-shadow: 0 10px 20px 0 white;
-  z-index: 1;
 }
 
 .navbar a {
@@ -239,6 +237,8 @@ header {
   text-align: center;
   overflow: auto;
   border-radius: 0 0 1rem 1rem;
+  display: flex;
+  flex-direction: column;
 }
 .card-name {
   font-weight: 700;
@@ -257,11 +257,15 @@ header {
 }
 .card-text {
   line-height: 1.5em;
-  margin: 20px 0;
+  margin: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* 프로필 카드 ; 모바일 반응형  */
-@media (max-width: 500px) {
+@media (max-width: 480px) {
   .section-members {
     width: calc(100% - 150px);
     height: auto;
@@ -284,7 +288,7 @@ header {
   }
 }
 /* 부트스트랩 덮어씌우기 */
-@media (min-width: 501px) {
+@media (min-width: 481px) {
   .row-cols-md-5 > * {
       flex: 0 0 auto;
       width: 20%;
@@ -474,15 +478,13 @@ header {
 
 .profile-block h3 {
   font-size: 1.4rem;
-  font-weight: 600;
-  /*굵기*/
+  font-weight: 600; /*굵기*/
 }
 
 .profile-block p {
   margin-top: 0.8rem;
   font-size: 1rem;
-  font-weight: 500;
-  /*굵기*/
+  font-weight: 500; /*굵기*/
   line-height: 1.5rem;
 }
 
@@ -522,8 +524,7 @@ footer {
 #user-name {
   font-family: "Noto Sans KR", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400;
-  /*굵기*/
+  font-weight: 400; /*굵기*/
   font-style: normal;
   font-size: 15px;
 
@@ -539,8 +540,7 @@ footer {
 .title-name {
   font-family: "Noto Sans KR", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 500;
-  /*굵기*/
+  font-weight: 500; /*굵기*/
   font-style: normal;
   margin-bottom: 3px;
   text-align: center;
@@ -552,8 +552,7 @@ footer {
 #input-comment {
   font-family: "Noto Sans KR", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 500;
-  /*굵기*/
+  font-weight: 500; /*굵기*/
   font-style: normal;
   font-size: 18px;
 
@@ -589,8 +588,7 @@ footer {
 #guest-name {
   font-family: "Noto Sans KR", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 500;
-  /*굵기*/
+  font-weight: 500; /*굵기*/
   font-style: normal;
   font-size: 18px;
   color: black;
@@ -606,8 +604,7 @@ footer {
 #print-comment {
   font-family: "Noto Sans KR", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 500;
-  /*굵기*/
+  font-weight: 500; /*굵기*/
   font-style: normal;
   font-size: 18px;
 
