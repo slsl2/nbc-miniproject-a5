@@ -31,6 +31,7 @@ header {
   align-items: center;
   color: white;
   box-shadow: 0 10px 20px 0 white;
+  z-index: 99;
 }
 
 .navbar a {
@@ -494,6 +495,7 @@ footer {
   background-color: #e4e4e4;
   padding: 1rem;
   text-align: center;
+  margin-top: 200px;
 }
 
 .github-ids a {
