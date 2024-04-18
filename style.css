@@ -98,12 +98,16 @@ header {
   color: #1d503d;
   margin: 0px;
   font-size: 1.3rem;
+  font-family: "Noto  Sans KR", sans-serif;
+
 }
 
 .team-list {
   list-style: disc;
   padding: 0px 20px;
   line-height: 120%;
+  font-family: "Noto  Sans KR", sans-serif;
+  line-height: 30px;
 }
 
 .team-list li {
@@ -122,14 +126,15 @@ header {
   border-radius: 30px;
   background-color: white;
   margin-right: 60px;
-  box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.4);  
+  font-family: "Noto  Sans KR", sans-serif;
 }
 
 .int-teampic {
   display: flex;
-  width: 930px;
   justify-content: space-between;
   align-items: center;
+  gap: 70px;
 }
 
 .int-teampic img {
@@ -159,13 +164,13 @@ header {
 .team-promise {
   border: thin solid black;
   border-radius: 20px;
-  width: 930px;
+  /* width: 930px; */
   height: 200px;
   background-color: #e4e4e4;
   margin-top: 30px;
   display: flex;
   justify-content: center;
-  padding-top: 00px;
+  padding-top: 0px;
   flex-direction: column;
   align-items: center;
   box-shadow: 0 4px 2px -2px gray;
@@ -177,6 +182,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  line-height: 15px;
 }
 
 .team-promise-title {
@@ -186,14 +192,12 @@ header {
 @media screen and (max-width: 480px) {
   .int-teampic {
     flex-direction: column;
-  }
-
-  .int-box {
-    margin-top: 30px;
+    width: 100%;
+    gap: 30px;
   }
 
   .team-promise {
-    width: 100%px;
+    width: 100%;
   }
 }
 
