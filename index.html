@@ -112,7 +112,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebas
         <span>ㅣ</span>
         <a href="#nav-members">팀원 프로필</a>
         <span>ㅣ</span>
-        <a href="nav-comment">방명록</a>
+        <a href="#nav-comment">방명록</a>
       </div>
     </header>
     <div id="nav-top" class="main">
@@ -125,8 +125,9 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebas
       </section>
       <!-- 팀 소개 -->
       <section id="nav-team" class="section-team">
+        <div class="section-name"><span>Our Team</span></div>
         <div class="int-teampic">
-          <img 
+          <img
             src="static/images/오히려좋조.png"
             alt="오히려좋조"
             width="425px"
@@ -156,19 +157,20 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebas
         </div>
         <div class="team-promise">
           <div class="team-promise-box">
-          <div class="include-circle team-promise-title">
-            <h3 class="team-title">팀 약속</h3>
+            <div class="include-circle team-promise-title">
+              <h3 class="team-title">팀 약속</h3>
+            </div>
+            <ul class="team-list team-promise-list">
+              <li>캠 켜서 참여</li>
+              <li>상대 존중하기 / 예쁜 말 쓰기(~님,존댓말)</li>
+              <li>시작과 끝에 모두 인사하기 (들어오면서 - 안녕하세요)</li>
+            </ul>
           </div>
-          <ul class="team-list team-promise-list">
-            <li>캠 켜서 참여</li>
-            <li>상대 존중하기 / 예쁜 말 쓰기(~님,존댓말)</li>
-            <li>시작과 끝에 모두 인사하기 (들어오면서 - 안녕하세요)</li>
-          </ul>
-        </div>
         </div>
       </section>
       <!-- 프로필 카드 -->
       <section id="nav-members" class="section-members">
+        <div class="section-name"><span>Team Profile</span></div>
         <div id="card" class="row row-cols-1 row-cols-md-5 g-4">
           <div class="col">
             <div class="card">
@@ -243,25 +245,37 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebas
         </div>
       </section>
       <!-- 방명록 -->
-      <section class="section-comment">
-          <!-- 댓글 입력 div -->
-          <div id="" class="input-box">
-            <p class="title-name">방명록</p>
-            <input id="user-name" type="text" placeholder=" 닉네임" />
+      <section id="nav-comment" class="section-comment">
+        <div class="section-name"><span>Guest Comment</span></div>
+        <!-- 댓글 입력 div -->
+        <div id="" class="input-box">
+          <p class="title-name">방명록</p>
+          <input id="user-name" type="text" placeholder=" 닉네임" />
 
-            <textarea name="" id="input-comment" cols="95" rows="4" placeholder=" 내용을 입력해주세요." class="comment"></textarea>
-            <!-- 글 남기기 버튼 -->
-            <div>
-            <button type="button" id="upload-btn" class="btn btn-outline-light button">글 남기기</button>
-            </div>
+          <textarea
+            name=""
+            id="input-comment"
+            cols="95"
+            rows="4"
+            placeholder=" 내용을 입력해주세요."
+            class="comment"
+          ></textarea>
+          <!-- 글 남기기 버튼 -->
+          <div>
+            <button
+              type="button"
+              id="upload-btn"
+              class="btn btn-outline-light button"
+            >
+              글 남기기
+            </button>
           </div>
+        </div>
 
           <!-- 댓글 확인 div -->
           <div id="comment-result" class = "row row-cols-1 row-cols-md-1 g-4">
-          </div>
-        
+        </div>
       </section>
-      <section id="nav-comment" class="section-comment"></section>
       <!-- 모달 -->
       <div class="modal">
         <div class="modal-body">
@@ -270,25 +284,41 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebas
               <i class="fa-solid fa-xmark"></i>
             </button>
           </div>
+
           <div class="modal-top">
-            <div class="modal-name">
-              <h1>
-                김가연
-                <p class="mbti">ENFJ</p>
-              </h1>
+            <div class="modal-title">
+              <p class="modal-name">김가연</p>
+              <p class="mbti">ENFJ</p>
             </div>
-            <p class="modal-sentence">생각한 대로 이루어진다</p>
-            <div class="modal-emoticon">
-              <div class="speech speech-bubble">🐶</div>
-              <div class="speech speech-bubble-2">🏋</div>
+
+            <img
+              src="static/images/speech_bubble1.png"
+              alt="speech-bubble"
+              class="bubble-image"
+            />
+            <div class="modal-text">
+              <p>🐶</p>
             </div>
+
+            <img
+              src="static/images/speech_bubble2.png"
+              alt="speech-bubble"
+              class="bubble-image-2"
+            />
+            <div class="modal-text-2">
+              <p>🏋</p>
+            </div>
+
+            <div class="modal-sentence">생각한 대로 이루어진다</div>
+
             <div class="modal-character">
               <img
-                src="https://media.bunjang.co.kr/product/228746928_1_1688282259_w360.jpg"
+                src="static/images/mimoji_body_gayeon.png"
                 alt="Your Image"
               />
             </div>
-            <a href="https://example.com" target="_blank"
+
+            <a href="https://for-cording-cheers.tistory.com/" target="_blank"
               ><button type="button" class="btn-blog">BLOG</button></a
             >
           </div>
@@ -324,21 +354,21 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebas
         </div>
       </div>
       <script>
-        const modal = document.querySelector('.modal');
-        const btnOpenModal = document.querySelector('#btn-open-modal');
-        const btnCloseModal = document.querySelector('.btn-close-modal');
+        const modal = document.querySelector(".modal");
+        const btnOpenModal = document.querySelector("#btn-open-modal");
+        const btnCloseModal = document.querySelector(".btn-close-modal");
         /* 모달 열기 */
-        btnOpenModal.addEventListener('click', () => {
-          modal.style.display = 'flex';
+        btnOpenModal.addEventListener("click", () => {
+          modal.style.display = "flex";
         });
         /* 버튼 클릭시 모달 닫기 */
-        btnCloseModal.addEventListener('click', () => {
-          modal.style.display = 'none';
+        btnCloseModal.addEventListener("click", () => {
+          modal.style.display = "none";
         });
         /* 외부영역 클릭시 모달 닫기 (제이쿼리) */
         $(document).mouseup(function (e) {
-          if ($('.modal').has(e.target).length === 0) {
-            $('.modal').hide();
+          if ($(".modal").has(e.target).length === 0) {
+            $(".modal").hide();
           }
         });
       </script>
