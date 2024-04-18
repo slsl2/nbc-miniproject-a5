@@ -22,6 +22,82 @@
       src="https://kit.fontawesome.com/c215d26fd2.js"
       crossorigin="anonymous"
     ></script>
+
+    <script type="module">
+      // Firebase SDK 라이브러리 가져오기
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+      import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+      import {
+        collection,
+        addDoc,
+      } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+      import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+      // Firebase 구성 정보 설정
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyCCpEJLiStLVFwcrqpuxrpMalSEmHYVR6o",
+        authDomain: "spart-58ab1.firebaseapp.com",
+        projectId: "spart-58ab1",
+        storageBucket: "spart-58ab1.appspot.com",
+        messagingSenderId: "28053893747",
+        appId: "1:28053893747:web:c8486884277d2f9b787006",
+        measurementId: "G-2HBBQFWCPC",
+      };
+
+      // Firebase 인스턴스 초기화
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      // 현재 시간
+      const currentDate = new Date();
+      const year = currentDate.getFullYear();
+      const month = currentDate.getMonth() + 1;
+      const day = currentDate.getDate();
+      const hour = currentDate.getHours();
+      const minute = currentDate.getMinutes();
+
+      // 파이어베이스 comment add 함수
+      $("#upload-btn").click(async function () {
+        let name = document.getElementById("user-name").value;
+        let comment = document.getElementById("input-comment").value;
+
+        let doc = {
+          name: name,
+          comment: comment,
+          date: { year, month, day, hour, minute },
+        };
+        await addDoc(collection(db, "comments"), doc);
+        window.location.reload();
+      });
+
+      // 댓글 get 함수
+      let docs = await getDocs(collection(db, "comments"));
+      docs.forEach((doc) => {
+        let row = doc.data();
+        console.log(typeof row.date);
+
+        let name = row["name"];
+        let comment = row["comment"];
+        let date = row["date"];
+
+        let temp_html = `
+        <div id="comment-result" class = "row row-cols-1 row-cols-md-1 g-4">
+          <div class="comment-box">
+          <p id="guest-name">
+            ${name} <span class="data-time">${date.year}.${date.month}.${date.day} ${date.hour}:${date.minute}</span>
+          </p>
+          <p id="print-comment">${comment}</p>
+
+          <!-- 수정 삭제 버튼 -->
+            <button type="button" id="deleted-btn" class="btn btn-danger button">삭제</button>
+            <button type="button" id="changed-btn" class="btn btn-outline-dark button">수정</button>
+          </div>
+    </div>`;
+
+        $("#comment-result").append(temp_html);
+      });
+    </script>
   </head>
   <body>
     <header>
@@ -41,7 +117,7 @@
       <section class="section-title">
         <div class="title-div">
           <img id="title-logo" src="static/images/logotitle.svg " />
-          <p>저희 팀을 소개합니다.</p>
+          <p>저희 팀을 소개합니다.</p>햑
         </div>
       </section>
       <!-- 팀 소개 -->
@@ -92,7 +168,7 @@
       <section id="nav-members" class="section-members">
         <div id="card" class="row row-cols-1 row-cols-md-5 g-4">
           <div class="col">
-            <div class="card">
+            <div class="card" id="open-modal-dh">
               <img
                 src="static/images/mimoji_face_doehee.png"
                 class="card-img-top"
@@ -101,12 +177,12 @@
               <div class="card-body">
                 <h5 class="card-name">김도희</h5>
                 <p class="card-mbti">INTJ</p>
-                <p class="card-text">WHAEVER.I.DO</p>
+                <p class="card-text">WHATEVER.I.DO</p>
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card">
+            <div class="card" id="open-modal-mj">
               <img
                 src="static/images/mimoji_face_minji.png"
                 class="card-img-top"
@@ -115,12 +191,12 @@
               <div class="card-body">
                 <h5 class="card-name">김민지</h5>
                 <p class="card-mbti">ISFJ</p>
-                <p class="card-text">캠프가 끝나면 개발자로 불릴 수 있도록</p>
+                <p class="card-text">그럴 수 있지..</p>
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card" id="btn-open-modal">
+            <div class="card" id="open-modal-gy">
               <img
                 src="static/images/mimoji_face_gayeon.png"
                 class="card-img-top"
@@ -148,7 +224,7 @@
             </div>
           </div>
           <div class="col">
-            <div class="card">
+            <div class="card" id="open-modal-jh">
               <img
                 src="static/images/mimoji_face_jihyun.png"
                 class="card-img-top"
@@ -201,6 +277,153 @@
             
              <button type="button" id="deleted-btn" class="btn btn-danger button">삭제</button>
               <button type="button" id="changed-btn" class="btn btn-outline-dark button">수정</button>
+            </div>
+        <!-- 댓글 확인 div -->
+        <div id="comment-result" class="row row-cols-1 row-cols-md-1 g-4"></div>
+      </section>
+      <!-- 모달 -->
+      <div class="modal" id="modal-dh">
+        <div class="modal-body">
+          <div class="close-modal-div">
+            <button class="btn-close-modal">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <div class="modal-top">
+            <div class="modal-title">
+              <p class="modal-name">김도희</p>
+              <p class="mbti">INTJ</p>
+            </div>
+
+            <img
+              src="static/images/speech_bubble1.png"
+              alt="speech-bubble"
+              class="bubble-image"
+            />
+            <div class="modal-text">
+              <p>🏋🏻‍♀</p>
+            </div>
+
+            <img
+              src="static/images/speech_bubble2.png"
+              alt="speech-bubble"
+              class="bubble-image-2"
+            />
+            <div class="modal-text-2">
+              <p>👗</p>
+            </div>
+
+            <div class="modal-sentence">WHATEVER.I.DO</div>
+
+            <div class="modal-character">
+              <img
+                src="static/images/mimoji_body_doehee.png"
+                alt="Your Image"
+              />
+            </div>
+
+            <a href="" target="_blank"
+              ><button type="button" class="btn-blog">BLOG</button></a
+            >
+          </div>
+          <div class="modal-bottom">
+            <div class="profile-block">
+              <h3>소개 부탁드립니다.</h3>
+              <p>발전을 위해 끊임없이 공부하는 좋은 개발자가 되고 싶습니다!</p>
+            </div>
+            <div class="profile-block">
+              <h3>장점은 뭐라고 생각하시나요?</h3>
+              <p>
+                창의적인 의견을 많이 제시하여 필요한 순간에 새로운 발상을
+                떠올립니다.<br />위기 순간에는 두통이 오지만 끈질기게 해결책을
+                모색하여 책임감 있게 일을 해냅니다.<br />타인에게 뿐만 아니라
+                자기 객관화를 위해 언제나 객관적인 시각을 가지려 끊임없이
+                스스로를 의심합니다.
+              </p>
+            </div>
+            <div class="profile-block">
+              <h3>자신의 스타일과 협업할 때의 스타일을 말해주세요.</h3>
+              <p>
+                문제에 대한 원인 파악, 탐색과 해결 과정에서 얻어지는 지식과
+                경험을 중요하게 여기고, 문제를 해결했을 때 느껴지는 성취감,
+                희열감이 저의 도파민입니다!<br />꽂히는 것이 있다면 만족할
+                때까지 디깅하여 끝까지 갑니다!<br />팀원들과 커뮤니케이션 통해
+                계획적으로 일처리 하는 것을 선호합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal" id="modal-mj">
+        <div class="modal-body">
+          <div class="close-modal-div">
+            <button class="btn-close-modal">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <div class="modal-top">
+            <div class="modal-title">
+              <p class="modal-name">김민지</p>
+              <p class="mbti">ISFJ</p>
+            </div>
+
+            <img
+              src="static/images/speech_bubble1.png"
+              alt="speech-bubble"
+              class="bubble-image"
+            />
+            <div class="modal-text">
+              <p>🍣</p>
+            </div>
+
+            <img
+              src="static/images/speech_bubble2.png"
+              alt="speech-bubble"
+              class="bubble-image-2"
+            />
+            <div class="modal-text-2">
+              <p>🎶</p>
+            </div>
+
+            <div class="modal-sentence">그럴 수 있지..</div>
+
+            <div class="modal-character">
+              <img src="static/images/mimoji_body_minji.png" alt="Your Image" />
+            </div>
+
+            <a href="https://velog.io/@minn__ij" target="_blank"
+              ><button type="button" class="btn-blog">BLOG</button></a
+            >
+          </div>
+          <div class="modal-bottom">
+            <div class="profile-block">
+              <h3>소개 부탁드립니다.</h3>
+              <p>
+                캠프가 끝나면 개발자로 불릴 수 있기를 꿈꾸고 있는 비전공자
+                김민지입니다!
+              </p>
+            </div>
+            <div class="profile-block">
+              <h3>장점은 뭐라고 생각하시나요?</h3>
+              <p>
+                긍정적이고 무던한 성격이 제 장점입니다. 실패를 경험해도 좌절하기
+                보다는 "그럴 수 있지~"라며 넘기고 앞을 바라보는 타입입니다. 크게
+                감정기복이 없다는 점도 차분히 일을 수행하고 사람들과 소통하는
+                데에 도움이 되는 성격이라고 생각합니다.
+              </p>
+            </div>
+            <div class="profile-block">
+              <h3>자신의 스타일과 협업할 때의 스타일을 말해주세요.</h3>
+              <p>
+                저는 기록하고 정리하는 것을 좋아합니다. 큰 그림을 그린 다음
+                차근차근 해야 할 일들을 정리해서 하나씩 해 나가는 편입니다.<br />협업
+                시에는 모두의 의견을 수용하고 존중하려 노력하고, 서로 간의
+                친절과 배려를 중요시 여기는 타입입니다. 밀고 나가야 할 때는
+                확실히 의견 주장을 하지만, 그 과정에서 서로의 기분이 상하지
+                않도록 언어의 전달과 커뮤니케이션 방식에 신경쓰는 스타일입니다.
+              </p>
             </div>
           </div>
         
@@ -266,6 +489,153 @@
           </div>
         </div>
       </div>
+      <div class="modal" id="modal-sb">
+        <div class="modal-body">
+          <div class="close-modal-div">
+            <button class="btn-close-modal">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <div class="modal-top">
+            <div class="modal-title">
+              <p class="modal-name">홍성빈</p>
+              <p class="mbti">ESTJ</p>
+            </div>
+
+            <img
+              src="static/images/speech_bubble1.png"
+              alt="speech-bubble"
+              class="bubble-image"
+            />
+            <div class="modal-text">
+              <p>🏋🏻</p>
+            </div>
+
+            <img
+              src="static/images/speech_bubble2.png"
+              alt="speech-bubble"
+              class="bubble-image-2"
+            />
+            <div class="modal-text-2">
+              <p>🐶</p>
+            </div>
+
+            <div class="modal-sentence">스스로의 믿음을 잃지 마라</div>
+
+            <div class="modal-character">
+              <img
+                src="static/images/mimoji_body_sungbin.png"
+                alt="Your Image"
+              />
+            </div>
+
+            <a href="https://velog.io/@seongbin1013" target="_blank"
+              ><button type="button" class="btn-blog">BLOG</button></a
+            >
+          </div>
+          <div class="modal-bottom">
+            <div class="profile-block">
+              <h3>소개 부탁드립니다.</h3>
+              <p>
+                안녕하세요, 부트캠프 하는 기간동안 경험과 실력을 쌓고, 좋은
+                개발자가 되도록 노력하겠습니다 😄
+              </p>
+            </div>
+            <div class="profile-block">
+              <h3>장점은 뭐라고 생각하시나요?</h3>
+              <p>
+                저의 장점은 도전정신과 꾸준함 입니다. 저는 도전을 해야 발전을
+                한다는 생각을 가지고 있습니다. 그리고 그것을 받쳐주는 것이
+                꾸준함이라고 생각합니다. 어떤 것에 있어 항상 이 마인드를 가지고
+                실행하고 있습니다.
+              </p>
+            </div>
+            <div class="profile-block">
+              <h3>자신의 스타일과 협업할 때의 스타일을 말해주세요.</h3>
+              <p>
+                저의 스타일은 심플함과 디테일을 추구합니다. 심플해야 보기 편하고
+                디테일은 모든 것을 완성한다고 믿습니다.<br />협업 스타일은
+                소통을 중요하게 생각하고 있습니다. 소통이 되지 않으면 어떤
+                것에도 시작이 되지 않습니다. 서로 간 의견을 존중하고, 친절한
+                말투를 사용할려고 노력합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal" id="modal-jh">
+        <div class="modal-body">
+          <div class="close-modal-div">
+            <button class="btn-close-modal">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <div class="modal-top">
+            <div class="modal-title">
+              <p class="modal-name">강지현</p>
+              <p class="mbti">ISTP</p>
+            </div>
+
+            <img
+              src="static/images/speech_bubble1.png"
+              alt="speech-bubble"
+              class="bubble-image"
+            />
+            <div class="modal-text">
+              <p>⚽️</p>
+            </div>
+
+            <img
+              src="static/images/speech_bubble2.png"
+              alt="speech-bubble"
+              class="bubble-image-2"
+            />
+            <div class="modal-text-2">
+              <p>🐱</p>
+            </div>
+
+            <div class="modal-sentence">성실하게 노력하겠습니다!</div>
+
+            <div class="modal-character">
+              <img
+                src="static/images/mimoji_body_jihyun.png"
+                alt="Your Image"
+              />
+            </div>
+
+            <a href="https://blog.naver.com/wlgus4083" target="_blank"
+              ><button type="button" class="btn-blog">BLOG</button></a
+            >
+          </div>
+          <div class="modal-bottom">
+            <div class="profile-block">
+              <h3>소개 부탁드립니다.</h3>
+              <p>안녕하세요 개발자를 꿈꾸고 있는 강지현 입니다.</p>
+            </div>
+            <div class="profile-block">
+              <h3>장점은 뭐라고 생각하시나요?</h3>
+              <p>
+                제가 생각하는 저의 장점은 성실함 입니다. 성실함은 제 일과 학습에
+                대한 태도를 가장 잘 드러내는 특성입니다.<br />새로운 프로젝트나
+                과제가 주어질 때, 저는 마감기한을 철저히 지키며, 어떤 작업이든
+                최선을 다해 수행하려 노력합니다.
+              </p>
+            </div>
+            <div class="profile-block">
+              <h3>자신의 스타일과 협업할 때의 스타일을 말해주세요.</h3>
+              <p>
+                다소 소극적일 수 있으나, 중요한 마감기한이 다가오면 효율적으로
+                일을 처리하며 필요한 결과를 제공합니다.<br />명확한 기대치와
+                목표가 설정되어 있을 때 더욱 잘 수행합니다.<br />협업할 때
+                스타일은 팀원들과 소통을 하려고 노력하고, 안 되거나 문제가
+                생기면 최대한 끝까지 파고들어 문제를 해결하려고 노력합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
       <script>
         const modal = document.querySelector('.modal');
         const btnOpenModal = document.querySelector('#btn-open-modal');
@@ -278,7 +648,8 @@
         btnCloseModal.addEventListener('click', () => {
           modal.style.display = 'none';
         });
-        /* 외부영역 클릭시 모달 닫기 (제이쿼리) */
+
+        // 외부영역 클릭시 모든 모달 닫기 (jQuery)
         $(document).mouseup(function (e) {
           if ($('.modal').has(e.target).length === 0) {
             $('.modal').hide();
