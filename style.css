@@ -342,11 +342,21 @@ header {
 }
 
 /* 모달 본체 */
+.modal-wrapper {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 120px);
+  width: 1000px;
+  height: 100%;
+}
+
+.modal-container {
+  position: relative;
+  width: 1000px;
+}
+
 .modal-body {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -45%);
   width: 1000px;
   max-height: 80%;
   text-align: center;
@@ -364,14 +374,28 @@ header {
   display: none;
 }
 
-.btn-close-modal {
-  background-color: white;
-  width: 50px;
+.close-modal-div {
+  width: 1000px;
   height: 50px;
-  color: black;
-  font-size: 25px;
-  border-radius: 50px;
+  padding-right: 9px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  justify-content: right;
+  position: absolute;
+  background-color: #939393;
+  z-index: 5;
+}
+
+.btn-close-modal {
+  background: none;
+  color: white;
+  font-size: 40px;
   border: none;
+}
+
+.btn-close-modal i {
+  text-shadow: 0 2px 3px rgba(34, 36, 38, 0.15);
 }
 
 .modal-top {
@@ -383,7 +407,7 @@ header {
   color: white;
   border-radius: 10px;
   box-shadow: 3px 5px 0px 1px #00000024;
-  margin: 20px;
+  margin: 30px;
   padding: 20px;
 }
 
@@ -462,6 +486,7 @@ header {
   text-decoration: none;
   font-weight: 800;
 }
+
 .modal-character {
   position: relative;
   max-width: 85%;
@@ -478,7 +503,7 @@ header {
 }
 
 .modal-bottom {
-  margin: 20px;
+  margin: 10px 30px 30px 30px;
 }
 
 .profile-block {
