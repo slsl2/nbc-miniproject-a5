@@ -647,9 +647,9 @@
         document.querySelectorAll(".card").forEach((btn) => {
           btn.addEventListener("click", function () {
             // 버튼의 ID에서 마지막 2글자 추출 (예: 'dh', 'mj')
-            const suffix = this.id.slice(-2);
+            const memberInitial = this.id.slice(-2);
             // 해당하는 모달의 ID를 조합하여 선택 (예: #modal-dh, #modal-mj)
-            const modal = document.querySelector(`#modal-${suffix}`);
+            const modal = document.querySelector(`#modal-${memberInitial}`);
             // 해당 모달을 표시
             modal.style.display = "flex";
           });
