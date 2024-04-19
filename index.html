@@ -48,16 +48,15 @@
       const db = getFirestore(app);
 
       // 현재 시간
-      const currentDate = Date.now();
-    
   Date.prototype.YYYYMMDDHHMM = function () {
   let yyyy = this.getFullYear().toString();
   let MM = pad(this.getMonth() + 1,2);
   let dd = pad(this.getDate(), 2);
   let hh = pad(this.getHours(), 2);
   let mm = pad(this.getMinutes(), 2)
+  let ss = pad(this.getSeconds(), 2)
 
-  return `${yyyy}.${MM}.${dd} ${hh}:${mm}`;
+  return `${yyyy}.${MM}.${dd} ${hh}:${mm}:${ss}`;
 };
 
 function pad(number, length) {
@@ -114,11 +113,13 @@ console.log(nowDate.YYYYMMDDHHMM());
         let comment = row["comment"];
         let date = row["date"];
 
+        const slicetime = date.slice(0, -3);
+
         let temp_html = `
         <div id="comment-result" class = "row row-cols-1 row-cols-md-1 g-4">
           <div class="comment-box">
           <p id="guest-name">
-            ${name} <span class="data-time">${date}</span>
+            ${name} <span class="data-time">${slicetime}</span>
           </p>
           <p id="print-comment">${comment}</p>
 
