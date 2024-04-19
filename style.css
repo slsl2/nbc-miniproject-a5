@@ -79,6 +79,11 @@ header {
   width: 100%;
 }
 
+/* a태그 블로그 밑줄 */
+a {
+  text-decoration: none;
+  }
+
 /* section 이름 줄 */
 .section-name {
   font-size: 40px;
@@ -107,6 +112,7 @@ header {
   line-height: 120%;
   font-family: "Noto  Sans KR", sans-serif;
   line-height: 30px;
+  font-size: medium;
 }
 
 .team-list li {
@@ -213,10 +219,11 @@ header {
   font-weight: 400;
   font-style: normal;
   border-radius: 1rem;
-  border-color: #000;
   height: 400px;
   width: 220.8px;
   cursor: pointer;
+  box-shadow: 3px 3px 5px gray, -3px -3px 5px gray;
+
 }
 
 /* 프로필 카드 ; 호버 애니메이션 */
