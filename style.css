@@ -103,14 +103,14 @@ a {
   color: #1d503d;
   margin: 0px;
   font-size: 1.3rem;
-  font-family: "Noto  Sans KR", sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 .team-list {
   list-style: disc;
   padding: 0px 20px;
   line-height: 120%;
-  font-family: "Noto  Sans KR", sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   line-height: 30px;
   font-size: medium;
 }
