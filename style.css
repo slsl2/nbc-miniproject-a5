@@ -98,12 +98,15 @@ header {
   color: #1d503d;
   margin: 0px;
   font-size: 1.3rem;
+  font-family: "Noto  Sans KR", sans-serif;
 }
 
 .team-list {
   list-style: disc;
   padding: 0px 20px;
   line-height: 120%;
+  font-family: "Noto  Sans KR", sans-serif;
+  line-height: 30px;
 }
 
 .team-list li {
@@ -123,13 +126,14 @@ header {
   background-color: white;
   margin-right: 60px;
   box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.4);
+  font-family: "Noto  Sans KR", sans-serif;
 }
 
 .int-teampic {
   display: flex;
-  width: 930px;
   justify-content: space-between;
   align-items: center;
+  gap: 70px;
 }
 
 .int-teampic img {
@@ -159,13 +163,13 @@ header {
 .team-promise {
   border: thin solid black;
   border-radius: 20px;
-  width: 930px;
+  /* width: 930px; */
   height: 200px;
   background-color: #e4e4e4;
   margin-top: 30px;
   display: flex;
   justify-content: center;
-  padding-top: 00px;
+  padding-top: 0px;
   flex-direction: column;
   align-items: center;
   box-shadow: 0 4px 2px -2px gray;
@@ -177,6 +181,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  line-height: 15px;
 }
 
 .team-promise-title {
@@ -186,14 +191,12 @@ header {
 @media screen and (max-width: 480px) {
   .int-teampic {
     flex-direction: column;
-  }
-
-  .int-box {
-    margin-top: 30px;
+    width: 100%;
+    gap: 30px;
   }
 
   .team-promise {
-    width: 100%px;
+    width: 100%;
   }
 }
 
@@ -214,6 +217,28 @@ header {
   height: 400px;
   width: 220.8px;
   cursor: pointer;
+}
+
+/* 프로필 카드 ; 호버 애니메이션 */
+.card:hover {
+  animation: bounce-vertical 0.8s both;
+}
+@keyframes bounce-vertical {
+  0% {
+    transform: scale3d(0.9, 0.9, 1);
+  }
+  15% {
+    transform: scale3d(0.95, 1.01, 1);
+  }
+  30% {
+    transform: scale3d(1.1, 0.95, 1);
+  }
+  60% {
+    transform: scale3d(0.97, 1.03, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
 }
 
 /* 프로필 카드 ; 이미지 */
@@ -248,13 +273,13 @@ header {
 }
 .card-mbti {
   font-weight: 900;
-  font-size: 1.2em;
+  font-size: 1.3em;
   color: #d5ebff;
   -webkit-text-stroke: 0.05em #000;
-  margin-bottom: 16px;
+  margin: 5px;
 }
 .col:nth-child(2n) .card-mbti {
-  color: #DCF9EA;
+  color: #dcf9ea;
 }
 .card-text {
   line-height: 1.5em;
@@ -291,9 +316,8 @@ header {
 /* 부트스트랩 덮어씌우기 */
 @media (min-width: 481px) {
   .row-cols-md-5 > * {
-      flex: 0 0 auto;
-      width: 20%;
-
+    flex: 0 0 auto;
+    width: 20%;
   }
 }
 
@@ -318,12 +342,22 @@ header {
 }
 
 /* 모달 본체 */
+.modal-wrapper {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 120px);
+  width: 1000px;
+  height: 100%;
+}
+
+.modal-container {
+  position: relative;
+  width: 1000px;
+}
+
 .modal-body {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 1000px;
+  width: 1000px;
   max-height: 80%;
   text-align: center;
   background-color: #939393;
@@ -340,14 +374,28 @@ header {
   display: none;
 }
 
-.btn-close-modal {
-  background-color: white;
-  width: 50px;
+.close-modal-div {
+  width: 1000px;
   height: 50px;
-  color: black;
-  font-size: 25px;
-  border-radius: 50px;
+  padding-right: 9px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  justify-content: right;
+  position: absolute;
+  background-color: #939393;
+  z-index: 5;
+}
+
+.btn-close-modal {
+  background: none;
+  color: white;
+  font-size: 40px;
   border: none;
+}
+
+.btn-close-modal i {
+  text-shadow: 0 2px 3px rgba(34, 36, 38, 0.15);
 }
 
 .modal-top {
@@ -359,7 +407,7 @@ header {
   color: white;
   border-radius: 10px;
   box-shadow: 3px 5px 0px 1px #00000024;
-  margin: 20px;
+  margin: 30px;
   padding: 20px;
 }
 
@@ -438,6 +486,7 @@ header {
   text-decoration: none;
   font-weight: 800;
 }
+
 .modal-character {
   position: relative;
   max-width: 85%;
@@ -454,7 +503,7 @@ header {
 }
 
 .modal-bottom {
-  margin: 20px;
+  margin: 10px 30px 30px 30px;
 }
 
 .profile-block {
@@ -537,7 +586,7 @@ footer {
   margin-bottom: 10px;
   padding: 0px 5px;
   float: left;
-  outline:none;
+  outline: none;
 }
 
 /* 방명록 간판  */
@@ -565,7 +614,7 @@ footer {
   border: 1px solid #a79e9e;
   resize: none;
   border-radius: 5px;
-  outline:none;
+  outline: none;
   padding: 0px 5px;
 }
 
