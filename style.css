@@ -596,6 +596,19 @@ footer {
   outline: none;
 }
 
+/* 비밀번호 */
+#user-password{
+  width: 130px;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid #a79e9e;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  padding: 0px 5px;
+  float: left;
+  outline: none;
+}
+
 /* 방명록 간판  */
 .title-name {
   font-family: "Noto Sans KR", sans-serif;
@@ -682,8 +695,8 @@ footer {
 }
 
 /* 수정 삭제 버튼 */
-#changed-btn,
-#deleted-btn {
+.change-btn,
+.delete-btn {
   margin-right: 5px;
 }
 
@@ -697,4 +710,8 @@ footer {
   #comment-result {
     width: 400px;
   }
+}
+
+.edit-section{
+  display: none;
 }

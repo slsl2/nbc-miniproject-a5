@@ -27,7 +27,7 @@
       // Firebase SDK 라이브러리 가져오기
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
       import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-      import { collection, addDoc, getDocs, query, orderBy, deleteDoc} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+      import { collection, addDoc, getDocs, query, orderBy, doc, deleteDoc, deleteField, setDoc, getDoc} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 
 
@@ -50,7 +50,7 @@
       // 현재 시간
   Date.prototype.YYYYMMDDHHMM = function () {
   let yyyy = this.getFullYear().toString();
-  let MM = pad(this.getMonth() + 1,2);
+  let MM = pad(this.getMonth() + 1, 2);
   let dd = pad(this.getDate(), 2);
   let hh = pad(this.getHours(), 2);
   let mm = pad(this.getMinutes(), 2)
@@ -66,33 +66,100 @@ function pad(number, length) {
   }
   return str;
 }
-    
-let nowDate = new Date();
-console.log(nowDate.YYYYMMDDHHMM());
+
 
       
       // 파이어베이스 comment add 함수
-      $("#upload-btn").click(async function () {
+      $("#upload-btn").click(async function() {
         let name = document.getElementById("user-name").value;
         let comment = document.getElementById("input-comment").value;
+        let password = document.getElementById('user-password').value;
       if (name === '' || comment === '') {          // 이름과 댓글 내용이 빈칸인데 댓글달기 버튼을 누를경우
       alert('닉네임과 내용을 입력해 주세요.')                // 댓글을 입력해 달라는 알람
       } else {
         const currentDate = new Date();
         const formattedDate = currentDate.YYYYMMDDHHMM();
                 // 닉네임, 댓글 케이스 문
-                if (name === "" || comment === "") {
+                if (name.trim === "" || comment.trim === "") {
           alert("댓글을 입력해 주세요.");
         } else {
           let doc = {
             name: name,
             comment: comment,
             date: formattedDate,
+            password: password
           };
           await addDoc(collection(db, "comments"), doc);
           window.location.reload();
         }
       }
+      });
+
+      // 삭제 기능
+      $(document).on("click", ".delete-btn", async function() {
+        // 클릭한 삭제 버튼이 속한 comment-box를 찾습니다.
+        const commentBox = $(this).closest('.comment-box');
+        // comment-box의 data-comment-id 속성을 사용하여 삭제할 댓글의 ID를 가져옵니다.
+        const commentId = commentBox.data('comment-id');
+        // 파이어베이스에서 특정 문서의 참조 가져오기
+        const commentPassword = doc(db, 'comments', commentId);
+        // 해당 문서의 데이터 가져오기
+        const passwordData = await getDoc(commentPassword);
+        // 문서의 데이터에서 비밀번호 필드의 값을 가져오기
+        const password = passwordData.data().password;
+
+        const target = $(this).closest('.comment-box').data('comment-id');
+        // 사용자로부터 비밀번호를 입력받습니다.
+        const userPassword = prompt("비밀번호를 입력하세요.", "");
+
+        // console.log(commentId);
+        // console.log(commentPassword);
+        // console.log(password);
+
+        if (password == userPassword) {
+          await deleteDoc(doc(db, "comments", target));
+            window.location.reload();
+        } else {
+          alert('비밀번호가 일치하지 않습니다.')
+        }
+  });
+
+      $(document).on("click", ".change-btn", async function() {
+        const currentDate = new Date();
+        const formattedDate = currentDate.YYYYMMDDHHMM();
+        const guestName = $(this).closest('.comment-box').data('user-id');
+        const target = $(this).closest('.comment-box').data('comment-id');
+        // 클릭한 삭제 버튼이 속한 comment-box를 찾습니다.
+        const commentBox = $(this).closest('.comment-box');
+        // comment-box의 data-comment-id 속성을 사용하여 삭제할 댓글의 ID를 가져옵니다.
+        const commentId = commentBox.data('comment-id');
+        // 파이어베이스에서 특정 문서의 참조 가져오기
+        const commentPassword = doc(db, 'comments', commentId);
+        // 해당 문서의 데이터 가져오기
+        const passwordData = await getDoc(commentPassword);
+        // 문서의 데이터에서 비밀번호 필드의 값을 가져오기
+        const password = passwordData.data().password;
+        // 사용자로부터 비밀번호를 입력받습니다.
+        const userPassword = prompt("비밀번호를 입력하세요.", "");
+
+        if (password == userPassword) {
+          const newComment = prompt("수정할 코멘트를 입력해주세요", "");
+          
+          if (newComment !== null && newComment !== '') {
+            await setDoc(doc(db, "comments", target), {
+              comment: newComment,
+              date: formattedDate + "수정" ,
+              name: guestName,
+              password: userPassword
+            });
+            window.location.reload();
+          } else {
+            alert('수정이 취소되었습니다.');
+          }
+        } else {
+          // 비밀번호가 일치하지 않는 경우, 알람 표시
+          alert('비밀번호가 일치하지 않습니다.');
+        }
       });
 
       // 댓글 get 함수   
@@ -107,27 +174,32 @@ console.log(nowDate.YYYYMMDDHHMM());
       let docs = await getDocs(q);
       docs.forEach((doc) => {
         let row = doc.data();
-        console.log(row);
+        // console.log(row.date);
 
         let name = row["name"];
         let comment = row["comment"];
         let date = row["date"];
-
-        const slicetime = date.slice(0, -3);
+        const docId = doc.id;         // 각 문서의 ID 가져오기 
+        const docData = doc.data();   // 각 문서의 데이터 가져오기
+        const commentDate = docData.date;
+        const slicetimefirst = date.slice(0, 16);
+        const slicetimeedit = date.slice(19, 21);
+        // console.log(docId);
+        // console.log(docData.password);
 
         let temp_html = `
         <div id="comment-result" class = "row row-cols-1 row-cols-md-1 g-4">
-          <div class="comment-box">
+          <div class="comment-box" data-comment-id="${docId}" data-user-id="${docData.name}">
           <p id="guest-name">
-            ${name} <span class="data-time">${slicetime}</span>
+            ${name} <span class="data-time">${slicetimefirst} ${slicetimeedit}</span>
           </p>
           <p id="print-comment">${comment}</p>
 
           <!-- 수정 삭제 버튼 -->
-            <button type="button" id="deleted-btn" class="btn btn-danger button">삭제</button>
-            <button type="button" id="changed-btn" class="btn btn-outline-dark button">수정</button>
+            <button id="" type="button" class="btn btn-danger button delete-btn">삭제</button>
+            <button type="button" class="btn btn-outline-dark button change-btn">수정</button>
           </div>
-    </div>`;
+        </div>`;
 
         $("#comment-result").append(temp_html);
       });
@@ -291,7 +363,11 @@ console.log(nowDate.YYYYMMDDHHMM());
         <!-- 댓글 입력 div -->
         <div id="" class="input-box">
           <p class="title-name">방명록</p>
-          <input id="user-name" type="text" placeholder="닉네임" />
+          <div>
+            <input id="user-name" type="text" placeholder="닉네임" />
+          <input id="user-password" type="password"  placeholder="비밀번호">
+          </div>
+          
 
           <textarea
             name=""
@@ -314,7 +390,10 @@ console.log(nowDate.YYYYMMDDHHMM());
         </div>
 
         <!-- 댓글 확인 div -->
-        <div id="comment-result" class="row row-cols-1 row-cols-md-1 g-4"></div>
+        <div id="comment-result" class="row row-cols-1 row-cols-md-1 g-4">
+          
+        </div>
+        
       </section>
       <!-- 모달 -->
       <div class="modal" id="modal-dh">
